@@ -1,0 +1,76 @@
+:root {
+    --map-container-light-bg: white;
+    --map-text-light: black;
+  
+    --map-container-dark-bg: #121212;
+    --map-text-dark: white;
+  }
+  
+
+  #textMap{
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+    border-bottom: #000000 1px;
+  }
+
+  .linkToMaison {
+    text-decoration: none;
+    border: none;
+  }
+
+ #map{
+  height: 70vh;
+  width: 1700px;
+  margin-left: auto;
+  margin-right: auto;
+ }
+
+#prixMaison{
+  margin-top: 5px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+  .galerieMessageDic {
+    margin-top: 100px;
+    text-align: left;
+  }
+  
+  .galerieMessageDic h1 {
+    font-family: Arial, sans-serif;
+    color: var(--map-text-light);
+  }
+  
+  /* Dark Mode */
+  body.dark-mode #map {
+    background-color: var(--map-container-dark-bg);
+  }
+  
+  body.dark-mode .galerieMessageDic h1 {
+    color: var(--map-text-dark);
+  }
+
+  .mapbox-popup-content {
+    background-color: white;
+    color: black;
+    border-radius: 8px;
+    padding: 10px;
+  }
+  
+  body.dark-mode .mapbox-popup-content {
+    background-color: #1c1c1c;
+    color: white;
+  }
+
+  .mapboxgl-popup-content {
+    background-color: white;
+    color: black;
+    border-radius: 8px;
+    padding: 10px;
+  }
+  
+  body.dark-mode .mapboxgl-popup-content {
+    background-color: #1c1c1c;
+    color: white;
+  }

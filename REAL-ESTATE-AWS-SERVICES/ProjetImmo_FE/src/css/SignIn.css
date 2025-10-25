@@ -1,0 +1,160 @@
+/* Variables de couleur pour le mode clair et sombre */
+:root {
+  /* Mode clair */
+  --bg-light: white;
+  --form-bg-light: white;
+  --text-light: #000000;
+  --input-border-light: #ccc;
+  --button-bg-light: #0e4a2e;
+  --button-hover-bg-light: #0e4a2e;
+  --footer-btn-bg-light: #d81c12a4;
+  --footer-btn-hover-bg-light: #d81c12a4;
+
+  /* Mode sombre */
+  --bg-dark: #121212;
+  --form-bg-dark: #1c1c1c;
+  --text-dark: white;
+  --input-border-dark: #444;
+  --button-bg-dark: #0e4a2e;
+  --button-hover-bg-dark: #0e4a2e;
+  --footer-btn-bg-dark: #d81c12a4;
+  --footer-btn-hover-bg-dark: #d81c12a4;
+}
+
+/* Mode clair par défaut */
+.signin-container {
+  display: flex;
+  height: 100vh;
+  background-color: var(--bg-light);
+}
+
+.signin-form-wrapper {
+  width: 50%;
+  max-width: 700px;
+  margin: auto;
+  padding: 90px;
+  background-color: var(--form-bg-light);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signin-form-wrapper h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+  color: var(--text-light);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: var(--text-light);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--input-border-light);
+  font-size: 16px;
+  color: var(--text-light);
+  background-color: white;
+}
+
+.signin-form-wrapper form button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--button-bg-light);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.signin-form-wrapper form button[type="submit"]:hover {
+  background-color: var(--button-hover-bg-light);
+}
+
+.signin-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.signin-footer p {
+  margin-bottom: 10px;
+}
+
+.signin-footer button {
+  border-radius: 6px;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  background-color: var(--footer-btn-bg-light);
+  color: white;
+  cursor: pointer;
+}
+
+.signin-footer button:hover {
+  background-color: var(--footer-btn-hover-bg-light);
+}
+
+.signin-image-container {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signin-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Mode sombre */
+body.dark-mode .signin-container {
+  background-color: var(--bg-dark);
+}
+
+body.dark-mode .signin-form-wrapper {
+  background-color: var(--form-bg-dark);
+}
+
+body.dark-mode .signin-form-wrapper h2 {
+  color: var(--text-dark);
+}
+
+body.dark-mode .form-group label {
+  color: var(--text-dark);
+}
+
+body.dark-mode .form-group input {
+  border: 1px solid var(--input-border-dark);
+  color: var(--text-dark);
+  background-color: #333333;
+}
+
+body.dark-mode .signin-form-wrapper form button[type="submit"] {
+  background-color: var(--button-bg-dark);
+}
+
+body.dark-mode .signin-form-wrapper form button[type="submit"]:hover {
+  background-color: var(--button-hover-bg-dark);
+}
+
+body.dark-mode .signin-footer button {
+  background-color: var(--footer-btn-bg-dark);
+}
+
+body.dark-mode .signin-footer button:hover {
+  background-color: var(--footer-btn-hover-bg-dark);
+}

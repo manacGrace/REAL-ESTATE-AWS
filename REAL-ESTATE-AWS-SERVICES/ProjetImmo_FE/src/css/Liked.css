@@ -1,0 +1,99 @@
+.listeMaisonsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+  }
+  
+  .maisonListeItem {
+    display: flex;
+    justify-content: flex-start;  
+    align-items: center;
+    gap: 25px;
+    padding: 16px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background-color: #dadada;
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+  }
+
+.dark-mode .maisonListeItem {
+    display: flex;
+    justify-content: flex-start;  
+    align-items: center;
+    gap: 25px;
+    padding: 16px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background-color: #363636;
+    transition: background-color 0.2s ease;
+  }
+
+  .dark-mode .maisonInfos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    color: #fff8f8;
+  }
+  
+  .dark-mode .ligne1 {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  .dark-mode .ligne2 {
+    font-size: 1rem;
+    color: #fffcfc;
+  }
+
+.bx-x {
+  cursor: pointer;
+  color: red;
+  font-size: 40px;
+  position: absolute;
+  right: 40px;
+}
+  
+  .maisonMiniature {
+    width: 250px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+    
+  }
+  
+  .maisonInfos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    color: #000000;
+  }
+  
+  .ligne1 {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  .ligne2 {
+    font-size: 1rem;
+    color: #000000;
+  }
+  .maisonMiniature {
+    min-width: 150px;
+    max-width: 150px;
+  }
+
+  .heartIcon {
+    font-size: 1.5rem;        
+    color: #44c767;          
+    transition: color 0.3s ease;
+    margin-left: 10px;       
+  }
+  
+  .heartIcon:hover {
+    color: #198754;         
+  }

@@ -1,0 +1,49 @@
+.divManasse {
+  transition: 0.3s;
+}
+
+#sectionManasse {
+  background-color: #5d947a;
+  background-image: linear-gradient(white, #5d947a);
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border: none;
+  height: 600px;
+  
+}
+
+#titleTextManasse {
+  color: rgb(0, 0, 0);
+  font-size: 60px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 800;
+  text-align: left;
+ 
+}
+
+#textManasse {
+  text-align: left;
+}
+
+.imagesManasse {
+  width: 400px;
+  height: auto;
+}
+
+body.dark-mode #sectionManasse {
+  background-color: #1c1c1c;
+  background-image: linear-gradient(#1c1c1c, #32a36f);
+  transition: 0.3s;
+}
+
+body.dark-mode #titleTextManasse {
+  color: white;
+}
+
+body.dark-mode #textManasse {
+  color: white;
+}
+
+body.dark-mode .imagesManasse {
+  filter: brightness(0.7);
+}

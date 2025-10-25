@@ -1,0 +1,87 @@
+#root {
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: stretch;
+  justify-content: flex-start;
+  align-items: stretch;
+  background-color: #F3F3F3;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #F3F3F3;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/*ADAPTATION MEDIA*/
+
+@media (max-width: 991px) {
+}
+
+@media (max-width: 1100px) {
+  .logo {
+    font-size: 80px;
+  }
+
+  .galerieMessageDic h1 {
+    font-family: Arial, sans-serif;
+    margin-top: 200px;
+    font-size: 100px;
+  }
+
+  .galerieCardsDiv {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 0px;
+    margin-right: 0px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .generatedCards {
+    cursor: pointer;
+    border: none;
+    width: 830px;
+    height: 950px;
+    border-radius: 25px;
+    text-align: left;
+    margin-top: 30px;
+    flex-direction: column;
+  }
+
+  .card-img-top {
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 769.5px;
+    height: 555.75px;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+
+  .listGoupItemGalerie {
+    font-weight: 800;
+    font-size: 45px;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .textRegionEtchambres {
+    background: transparent;
+    font-size: 35px;
+  }
+}

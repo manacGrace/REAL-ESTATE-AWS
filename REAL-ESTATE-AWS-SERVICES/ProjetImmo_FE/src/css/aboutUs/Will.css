@@ -1,0 +1,41 @@
+.divWill {
+  transition: 0.3s;
+  display: -ms-inline-grid;
+  align-items: center;
+  justify-content: center;
+}
+
+#sectionWill {
+  background-color: white;
+  background-image: linear-gradient(rgb(255, 255, 255), #754fbd);
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border: none;
+}
+#titleTextWill {
+  color: rgb(0, 0, 0);
+  font-size: 60px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 800;
+  text-align: right;
+}
+#textWill {
+  text-align: right;
+}
+.imagesWill {
+  width: 400px;
+  height: auto;
+}
+
+body.dark-mode #sectionWill {
+  background-color: #1c1c1c;
+  background-image: linear-gradient(#1c1c1c, #754fbd);
+}
+
+body.dark-mode #titleTextWill {
+  color: white;
+}
+
+body.dark-mode #textWill {
+  color: white;
+}

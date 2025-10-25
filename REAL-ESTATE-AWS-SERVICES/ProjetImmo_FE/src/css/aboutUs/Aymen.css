@@ -1,0 +1,30 @@
+.divAymen {
+  margin-top: 50px;
+  padding: 50px 0;
+  background: linear-gradient(#d1e7dd, #a5d6b2);
+  border-top: 3px solid black;
+}
+
+.imagesAymen {
+  width: 100%;
+  max-width: 500px;
+  display: block;
+}
+
+#colTextAymen {
+  color: black;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  border-top: 3px solid black;
+  height: 350px;
+}
+
+#titletextAymen {
+  font-weight: 800;
+  font-size: 60px;
+  text-align: left;
+}
+
+#textAymen {
+  text-align: left;
+  font-size: 16px;
+}

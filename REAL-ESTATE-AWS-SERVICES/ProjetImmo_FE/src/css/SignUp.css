@@ -1,0 +1,114 @@
+/* Variables de couleur pour le mode clair et sombre */
+:root {
+  /* Mode clair */
+  --bg-signup-light: rgba(255, 255, 255, 0.9);
+  --bg-light: white;
+  --form-bg-light:white;
+  --text-light: #000000;
+  --input-border-light: #ccc;
+  --button-bg-light: #0e4a2e;
+  --button-hover-bg-light: #0e4a2e;
+
+  /* Mode sombre */
+  --bg-signup-dark: rgba(0, 0, 0, 0.7);
+  --bg-dark: #121212;
+  --form-bg-dark: #1c1c1c;
+  --text-dark: white;
+  --input-border-dark: #444;
+  --button-bg-dark: #0e4a2e;
+  --button-hover-bg-dark: #0e4a2e;
+}
+
+/* Mode clair par défaut */
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("https://raw.githubusercontent.com/ManasseTegGbegnohou/picsProjetImmo/refs/heads/master/maisonsGalerie/maison01.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.signup-form-wrapper {
+  background-color: var(--bg-signup-light);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  max-width: 450px;
+  width: 100%;
+}
+
+.signup-form-wrapper h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+  color: var(--text-light);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: var(--text-light);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--input-border-light);
+  font-size: 16px;
+  color: var(--text-light);
+  background-color: white;
+}
+
+.buttonSingUp[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--button-bg-light);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.buttonSingUp[type="submit"]:hover {
+  background-color: var(--button-hover-bg-light);
+}
+
+/* Mode sombre */
+body.dark-mode .signup-container {
+  background-color: var(--bg-dark);
+}
+
+body.dark-mode .signup-form-wrapper {
+  background-color: var(--form-bg-dark);
+}
+
+body.dark-mode .signup-form-wrapper h2 {
+  color: var(--text-dark);
+}
+
+body.dark-mode .form-group label {
+  color: var(--text-dark);
+}
+
+body.dark-mode .form-group input {
+  border: 1px solid var(--input-border-dark);
+  color: var(--text-dark);
+  background-color: #333333;
+}
+
+body.dark-mode .buttonSingUp[type="submit"] {
+  background-color: var(--button-bg-dark);
+}
+
+body.dark-mode .buttonSingUp[type="submit"]:hover {
+  background-color: var(--button-hover-bg-dark);
+}

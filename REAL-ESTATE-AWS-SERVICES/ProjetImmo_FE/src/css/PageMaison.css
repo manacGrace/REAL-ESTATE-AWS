@@ -1,0 +1,109 @@
+.divPageMaison {
+  margin-top: 100px;
+}
+
+.ColAddressMaison {
+  text-align: left;
+}
+
+#maisonVendre {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+#address {
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.ColPriceMaison {
+  text-align: right;
+  font-weight: 600;
+  font-size: 40px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.ColImageMaison {
+  transition: 0.3s;
+}
+
+.pageMaisonImagePrincipalMaison {
+  width: 880px;
+  height: 515px;
+  object-fit: cover;
+  object-position: -20px;
+}
+
+.pageMaisonImageSecondaireMaison {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.pageMaisonImageSecondaireMaison2 {
+  width: 100%;
+  height: 240px;
+  margin-top: 20px;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.ColMap {
+  height: 80px;
+}
+
+.ColMap div {
+  font-size: 20px;
+  padding: 7px;
+  border: 1px #000000 solid;
+  border-radius: 5px;
+}
+
+#mapIconDiv {
+  margin-top: 20px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.bx-map-alt {
+  margin-right: 0;
+  text-align: right;
+  font-size: 30px;
+  color: #5d947a;
+  margin-left: 10px;
+}
+
+.ColCaracteristiques {
+  margin-top: 10px;
+}
+
+#caracteristiquesDiv {
+  text-align: left;
+  margin-left: 5px;
+  font-size: 30px;
+  color: rgb(2, 108, 37)
+}
+.RowRowsAllRows{
+    
+    margin-top: 40px;
+    text-align: left;
+}
+
+.ColMargin {
+  margin-left:7px;
+}
+
+.ColMargin h1{
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.ColMargin p{
+    font-weight: 500;
+}

@@ -1,0 +1,114 @@
+/*SECTION REDIRECT GALERIE*/
+.divPricipalSectionRedirectGalerie {
+  text-align: center;
+  margin-top: -50px;
+}
+
+.divSecondaireSectionRedirectGalerie {
+  display: inline-block;
+}
+
+#textAVendre {
+  font-weight: 800;
+  text-align: left;
+} 
+
+.galerieCardsDiv2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.generatedCards2 {
+  border: none;
+  cursor: pointer;
+  width: 22rem;
+  height: 17rem;
+  text-align: center;
+  margin-top: 30px;
+  background: transparent;
+}
+
+.imgRedirectPage{
+  border-radius: none;
+}
+
+.listGoupItemRedirect {
+  font-size: 20px;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+  text-align: left;
+  color: var(--text-light);
+}
+
+body.dark-mode .listGoupItemRedirect {
+  color: var(--text-dark); /* Couleur du texte en mode sombre */
+}
+
+/* SECTION AFFICHER MAISONS*/
+.presentation {
+  background: url("https://raw.githubusercontent.com/ManasseTegGbegnohou/picsProjetImmo/refs/heads/master/pagePresentation/suburbs.jpg");
+  background-position: center;
+  background-size: cover;
+  padding-bottom: 390px;
+  padding-top: 100px;
+  color: white;
+  font-family: Arial, sans-serif;
+  z-index: -1;
+  margin-top: -50px;
+}
+
+.presentation-content {
+  text-align: center;
+}
+
+.presentation-text-container {
+  display: inline-block;
+  text-align: left;
+}
+
+.presentation-text {
+  font-size: 40px;
+  text-shadow: 5px 5px 4px gray;
+  color: #006b3f;
+}
+
+/* PETIT TEXT*/
+#petitTextTitle {
+  text-align: center;
+  font-size: 20px;
+}
+
+#petitText {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 50px;
+  font-weight: 500;
+}
+
+/*SECTION REDIRECT*/
+.divBtnAfficherGalerie {
+  margin-top: 0px;
+}
+
+#boutonAfficherGallerie {
+  border-radius: 25px;
+  border: none;
+  background-color: #198754;
+  padding: 0 20px 5px 20px;
+  box-shadow: 0 6px 6px 3px rgba(0, 0, 0, 0.2);
+  color: black;
+  scale: 0.5;
+  text-decoration: none;
+  font-size: 40px;
+}
+
+#boutonAfficherGallerie a {
+  color: white;
+  text-decoration: none;
+}
+
+#boutonAfficherGallerie:hover {
+  background-color: #0e4a2e;
+}

@@ -1,0 +1,140 @@
+/* Variables de couleur pour le mode clair et sombre */
+:root {
+  /* Mode clair */
+  --bg-light: white;
+  --text-light: #000000;
+  --navbar-light-bg: white;
+  --navbar-light-text: rgb(0, 0, 0);
+  --link-light-hover-bg: #198754;
+  --logo-light: #198754;
+  
+  /* Mode sombre */
+  --bg-dark: #121212;
+  --text-dark: white;
+  --navbar-dark-bg: #1c1c1c;
+  --navbar-dark-text: white;
+  --logo-dark: #198754;
+}
+
+/* Mode clair par défaut */
+body {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+  align-content: flex-start;
+  align-items: stretch;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  text-decoration: none;
+  position: fixed;
+  width: 100%;
+  background-color: var(--navbar-light-bg);
+  top: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+header a {
+  color: var(--navbar-light-text);
+  text-decoration: none;
+}
+
+header a:hover {
+  color: var(--navbar-light-text);
+}
+
+/* Logo */
+.logo {
+  font-size: 30px;
+  color: var(--logo)
+}
+
+body.dark-mode {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+body.dark-mode .logo {
+  color: var(--logo-dark); 
+}
+
+
+/* Navbar */
+.navbar {
+  font-size: 30px;
+  color: #198754;
+}
+
+.navbar-nav {
+  margin-left: 30px;
+}
+
+/* Dropdown items */
+.dropdown-item {
+  font-weight: 700;
+}
+
+/* Nav item links */
+.nav-item a {
+  color: var(--navbar-light-text);
+  text-decoration: none;
+}
+
+.nav-item a:hover {
+  color: var(--navbar-light-text);
+  text-decoration: none;
+}
+
+.bx-user-circle{
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 40px;
+}
+
+.bx-user-circle:hover{
+  color: var(--navbar-light-text);
+}
+
+/* Nav link styling */
+.nav-link {
+  border-radius: 15px;
+  font-size: 20px;
+}
+
+/* Nav link hover effect */
+.nav-link:hover {
+  background-color: var(--link-light-hover-bg);
+}
+
+/* Mode sombre */
+body.dark-mode {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+body.dark-mode header {
+  background-color: var(--navbar-dark-bg);
+}
+
+body.dark-mode header a {
+  color: var(--navbar-dark-text);
+}
+
+body.dark-mode .navbar {
+  color: var(--navbar-dark-text);
+}
+
+body.dark-mode .navbar-nav .nav-link {
+  color: var(--navbar-dark-text);
+}
+
+body.dark-mode .nav-link:hover {
+  background-color: var(--link-dark-hover-bg);
+}
+
+.fixed-bottom{
+  position:relative;
+}

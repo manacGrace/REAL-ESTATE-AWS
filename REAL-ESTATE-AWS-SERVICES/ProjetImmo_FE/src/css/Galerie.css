@@ -1,0 +1,181 @@
+:root {
+  /* clair */
+  --bg-galerie-light: #ffffff;
+  --text-light: #000000;
+  --card-bg-light: #dfdddd;
+  --card-hover-light: #5d947a;
+
+  /* sombre */
+  --bg-galerie-dark: #121212;
+  --text-dark: #ffffff;
+  --card-bg-dark: #1e1e1e;
+  --card-hover-dark: rgba(0, 167, 56, 0.3);
+  --heart-color-dark: #44c767;
+
+
+  --border-radius: 12px;
+  --transition: 0.3s ease;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --card-shadow-hover: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* ==============================
+   TITRE
+============================== */
+.galerieMessageDic h1 {
+  font-family: Arial, sans-serif;
+  margin: 100px auto 40px;
+  color: var(--text-light);
+  text-align: center;
+  font-size: 2.2rem;
+  line-height: 1.3;
+  transition: var(--transition);
+}
+
+/* ==============================
+   LAYOUT GALERIE
+============================== */
+.filtreZone {
+  margin-bottom: 2rem;
+}
+
+.galerieCardsDiv, .galerieCardsDivToCenter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0 5vw 3rem;
+  margin-top: 2rem;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.linkToMaison {
+  text-decoration: none;
+}
+
+/* ==============================
+   CARTE MAISON
+============================== */
+.generatedCards {
+  width: 100%;
+  max-height: fit-content;
+  padding: 20px;
+  border-radius: var(--border-radius);
+  background-color: var(--card-bg-light);
+  box-shadow: var(--card-shadow);
+  transition: background-color var(--transition), box-shadow var(--transition);
+}
+
+.generatedCards.card:hover {
+  background-color: var(--card-hover-light);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 15px;
+ 
+}
+
+/* ==============================
+   TEXTES CARTE
+============================== */
+  .listGoupItemGalerie {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.85);
+  border-bottom: 1px solid ;
+  font-size: 1rem;
+  text-align: left;
+  font-weight: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  justify-content: space-between;
+}
+
+.textRegionEtchambres{
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.85);
+  border-bottom: 1px solid ;
+  font-size: 1rem;
+  text-align: left;
+  font-weight: 1rem;
+  padding: 8px 0;
+  margin-top: 5px;
+}
+
+.bx-heart {
+  color: #44c767;
+  font-weight: 900;
+  transition: var(--transition);
+  font-size: 1.2rem; 
+}
+
+.bx-heart:hover {
+  color: black;
+}
+
+/* ==============================
+   MODE SOMBRE
+============================== */
+body.dark-mode {
+  --bg-galerie-light: var(--bg-galerie-dark);
+  --text-light: rgba(255, 255, 255, 0.85);
+  --card-bg-light: var(--card-bg-dark);
+  --card-hover-light: var(--card-hover-dark);
+}
+
+body.dark-mode .galerieMessageDic h1,
+body.dark-mode .listGoupItemGalerie,
+body.dark-mode .textRegionEtchambres {
+  color: var(--text-dark);
+  border-color: #444;
+}
+
+body.dark-mode .bx-heart {
+  color: var(--heart-color-dark);
+}
+
+body.dark-mode .bx-heart:hover {
+  color: var(--bg-galerie-light);
+}
+
+/* ==============================
+   DROPDOWN
+============================== */
+.dropdown-menu {
+  background-color: var(--bg-galerie-light);
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+}
+
+.dropdown-item {
+  color: var(--text-light);
+  padding: 10px 15px;
+  font-size: 1rem;
+  transition: background-color var(--transition);
+}
+
+.dropdown-item:hover {
+  background-color: var(--card-hover-light);
+}
+
+body.dark-mode .dropdown-menu {
+  border-color: #444;
+}
+
+body.dark-mode .dropdown-item {
+  color: var(--text-dark);
+}
+
+body.dark-mode .dropdown-item:hover {
+  background-color: var(--card-hover-dark);
+}
+
+.dropdown-divider {
+  border-top: 1px solid #888;
+  margin: 4px 0;
+}
