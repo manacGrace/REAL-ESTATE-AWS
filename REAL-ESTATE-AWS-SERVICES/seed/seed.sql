@@ -1,3 +1,7 @@
+-- Create database if it doesn't exist
+CREATE DATABASE IF NOT EXISTS `realdb` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_uca1400_ai_ci;
+USE `realdb`;
+
 DROP TABLE IF EXISTS `maison`;
 CREATE TABLE IF NOT EXISTS `maison` (
   `area` int(11) DEFAULT NULL,

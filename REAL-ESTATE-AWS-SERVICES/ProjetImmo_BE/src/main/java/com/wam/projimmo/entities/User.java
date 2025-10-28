@@ -7,12 +7,14 @@ import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
 @Data
 @Builder
 @Entity
+@NoArgsConstructor
 @AllArgsConstructor
 public class User implements Serializable {
 
@@ -24,15 +26,6 @@ public class User implements Serializable {
     private String email;
     private String password;
 
-    public User(String password, String email, String lastName, String firstName) {
-        this.password = password;
-        this.email = email;
-        this.lastName = lastName;
-        this.firstName = firstName;
-    }
-
-    public User() {
-    }
 
     public Long getIdUser() {
         return idUser;

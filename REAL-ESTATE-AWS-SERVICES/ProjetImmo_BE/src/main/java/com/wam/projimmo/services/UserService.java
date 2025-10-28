@@ -38,12 +38,14 @@ public class UserService {
             String encodedPassword = securityConfig.passwordEncoder().encode(user.getPassword());
 
             // Création et sauvegarde du nouvel utilisateur avec le mot de passe encodé
-            User newUser = userRepository.save(new User(
-                    encodedPassword,
-                    user.getEmail(),
-                    user.getLastName(),
-                    user.getFirstName()
-            ));
+            User newUser = User.builder()
+                    .password(encodedPassword)
+                    .email(user.getEmail())
+                    .lastName(user.getLastName())
+                    .firstName(user.getFirstName())
+                    .build();
+            
+            userRepository.save(newUser);
             return true;
         }
         return false;

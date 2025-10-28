@@ -18,15 +18,21 @@ function SignUp() {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (user.password !== user.confirmPassword) {
       alert("Les mots de passe ne correspondent pas !");
       return;
     }
-    const resultData = signUp(user);
-    if (resultData) {
-      navigate("/SignIn")
+    try {
+      const resultData = await signUp(user);
+      if (resultData) {
+        navigate("/SignIn");
+      } else {
+      }
+    } catch (error) {
+      console.error("Erreur lors de l'inscription:", error);
+      alert("Erreur lors de l'inscription. Veuillez réessayer.");
     }
     // axios
     //   .post(`http://localhost:8888/user/signUp`, user)
