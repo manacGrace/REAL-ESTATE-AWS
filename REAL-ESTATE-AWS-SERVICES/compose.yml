@@ -86,7 +86,8 @@ services:
       - "--entrypoints.websecure.address=:443"
       - "--entrypoints.websecure.http.tls=true"
       - "--entrypoints.websecure.http.tls.certResolver=letsencrypt"
-      - "--entrypoints.websecure.http.tls.domains[0].main=${MY_DOMAIN}"
+      - "--entrypoints.websecure.http.tls.domains[0].main=manacGrace-real-estate.manacgrace.duckdns.org"
+      - "--entrypoints.websecure.http.tls.domains[1].main=manacGrace-real-estate-backend.manacgrace.duckdns.org"
     volumes:
       - "./data/traefik/letsencrypt:/letsencrypt"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
