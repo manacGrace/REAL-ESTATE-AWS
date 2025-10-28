@@ -9,7 +9,7 @@
 # dotenv environment variable files
 .env
 .env.*
-!.env.example
+!.env.template
 
 # ===========================================
 # TERRAFORM (Infrastructure)

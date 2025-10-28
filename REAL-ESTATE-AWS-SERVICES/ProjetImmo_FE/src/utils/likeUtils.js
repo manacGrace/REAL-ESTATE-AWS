@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
-
-const API_URL = import.meta.env.VITE_API_URL || `https://${process.env.BACKEND_SUBDOMAIN}.${process.env.MY_DOMAIN}/api`
+import { API_URL } from './config.js';
 
 export const handleLike = async (e, idMaison, navigate) => {
   e.preventDefault();

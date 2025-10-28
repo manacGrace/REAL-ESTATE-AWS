@@ -18,7 +18,7 @@ import java.util.Arrays;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    @Value("${FRONTEND_SUBDOMAIN}")
+    @Value("${VITE_FRONTEND_SUBDOMAIN}")
     private String frontendSubdomain;
 
     @Value("${MY_DOMAIN}")

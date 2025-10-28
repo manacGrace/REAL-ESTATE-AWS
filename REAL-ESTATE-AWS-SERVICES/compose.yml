@@ -4,8 +4,9 @@ services:
       context: ./ProjetImmo_FE
       dockerfile: Dockerfile
       args:
-        - VITE_API_URL=https://${BACKEND_SUBDOMAIN}.${MY_DOMAIN}/api
-    image: ${FRONTEND_IMAGE}:${FRONTEND_VERSION}
+        - VITE_API_URL=${VITE_API_URL}
+        - VITE_FRONTEND_SUBDOMAIN=${VITE_FRONTEND_SUBDOMAIN}
+        - VITE_BACKEND_SUBDOMAIN=${VITE_BACKEND_SUBDOMAIN}
     container_name: ${FRONTEND_CONTAINER}
     restart: unless-stopped
     depends_on:
@@ -14,7 +15,7 @@ services:
       - ${NETWORK_NAME}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.frontend.rule=Host(`${FRONTEND_SUBDOMAIN}.${MY_DOMAIN}`)"
+      - "traefik.http.routers.frontend.rule=Host(`${VITE_FRONTEND_SUBDOMAIN}.${MY_DOMAIN}`)"
       - "traefik.http.routers.frontend.entryPoints=websecure"
       - "traefik.http.services.frontend.loadbalancer.server.port=80"
 
@@ -22,7 +23,6 @@ services:
     build:
       context: ./ProjetImmo_BE
       dockerfile: Dockerfile
-    image: ${BACKEND_IMAGE}:${BACKEND_VERSION}
     container_name: ${BACKEND_CONTAINER}
     restart: unless-stopped
     networks:
@@ -35,17 +35,19 @@ services:
       - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}
       - SERVER_PORT=${API_PORT}
       - SPRING_DATASOURCE_DRIVER-CLASS-NAME=org.mariadb.jdbc.Driver
+      - VITE_FRONTEND_SUBDOMAIN=${VITE_FRONTEND_SUBDOMAIN}
+      - MY_DOMAIN=${MY_DOMAIN}
     depends_on:
       mariadb:
         condition: service_healthy
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.backend.rule=Host(`${BACKEND_SUBDOMAIN}.${MY_DOMAIN}`)"
+      - "traefik.http.routers.backend.rule=Host(`${VITE_BACKEND_SUBDOMAIN}.${MY_DOMAIN}`)"
       - "traefik.http.routers.backend.entryPoints=websecure"
       - "traefik.http.services.backend.loadbalancer.server.port=${API_PORT}"
 
   mariadb:
-    image: ${MARIADB_IMAGE}:${MARIADB_VERSION}
+    image: mariadb:latest
     container_name: ${MARIADB_CONTAINER}
     restart: unless-stopped
     networks:
