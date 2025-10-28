@@ -32,5 +32,4 @@ public class Credentials {
         this.email = email;
     }
 
-
 }

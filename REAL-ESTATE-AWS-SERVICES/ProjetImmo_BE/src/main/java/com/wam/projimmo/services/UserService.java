@@ -44,7 +44,7 @@ public class UserService {
                     .lastName(user.getLastName())
                     .firstName(user.getFirstName())
                     .build();
-            
+
             userRepository.save(newUser);
             return true;
         }

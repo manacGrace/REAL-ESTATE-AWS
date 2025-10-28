@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 @Entity
+@NoArgsConstructor
 @AllArgsConstructor
 public class MaisonLikedByUser {
 
@@ -21,13 +22,6 @@ public class MaisonLikedByUser {
 
     @ManyToOne
     private User user;
-
-    public MaisonLikedByUser(User user, Maison maison) {
-        this.user = user;
-        this.maison = maison;
-    }
-
-    public MaisonLikedByUser() {}
 
     public Long getIdMaisonLikedByUser() {
         return idMaisonLikedByUser;

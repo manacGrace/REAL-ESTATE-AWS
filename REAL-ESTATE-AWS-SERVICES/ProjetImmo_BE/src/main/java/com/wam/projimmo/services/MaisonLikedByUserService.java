@@ -16,7 +16,8 @@ public class MaisonLikedByUserService {
 
     private final UserService userService;
 
-    public MaisonLikedByUserService(MaisonLikedByUserRepository maisonLikedByUserRepository, MaisonService maisonService, UserService userService) {
+    public MaisonLikedByUserService(MaisonLikedByUserRepository maisonLikedByUserRepository,
+            MaisonService maisonService, UserService userService) {
         this.maisonLikedByUserRepository = maisonLikedByUserRepository;
         this.maisonService = maisonService;
         this.userService = userService;
@@ -30,11 +31,14 @@ public class MaisonLikedByUserService {
     }
 
     public boolean addMaisonLikedByUser(Long idUser, Long idMaison) {
-        if (idUser != null && idMaison != null && maisonLikedByUserRepository.findSpecificMaisonLikedByUser(idMaison, idUser) == null) {
-            maisonLikedByUserRepository.save(new MaisonLikedByUser(
-                    userService.searchUserById(idUser),
-                    maisonService.searchMaisonById(idMaison)
-            ));
+        if (idUser != null && idMaison != null
+                && maisonLikedByUserRepository.findSpecificMaisonLikedByUser(idMaison, idUser) == null) {
+            MaisonLikedByUser newLike = MaisonLikedByUser.builder()
+                    .user(userService.searchUserById(idUser))
+                    .maison(maisonService.searchMaisonById(idMaison))
+                    .build();
+
+            maisonLikedByUserRepository.save(newLike);
             return true;
         } else {
             return false;
