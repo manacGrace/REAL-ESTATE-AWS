@@ -28,8 +28,11 @@ Registration works similarly but creates a new user with an encrypted password.
 Properties are stored as `Maison` entities with detailed information (address, rooms, price, coordinates). The API provides:
 
 - **Public access** to browse all properties (`/api/maisons/getAll`)
-- **Search functionality** by various criteria (area, rooms, price)
+![getAll](./pictures/getAll.png)
+- **Search functionality** by various criteria (area, rooms, price)(handled in frontend)
+![filter](./pictures/filter.png)
 - **Detailed views** of individual properties
+![getById](./pictures/getById.png)
 
 ### Favorites System
 
@@ -42,8 +45,6 @@ Users can like/unlike properties through the `MaisonLikedByUser` relationship:
 
 The application uses **Spring Security** with:
 - **Public endpoints**: Sign-in, sign-up, property browsing, region data
-- **Protected endpoints**: User data, favorites management
-- **CORS configuration**: Allows frontend domain only
 - **Password encryption**: BCrypt hashing
 
 ### Database Integration

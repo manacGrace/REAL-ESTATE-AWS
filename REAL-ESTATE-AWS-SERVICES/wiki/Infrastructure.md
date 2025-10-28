@@ -6,7 +6,7 @@ This part of the project aims to deploy a secure, highly available, multi-servic
 
 # AWS Network Infrastructure Diagram
 
-![image](https://github.com/user-attachments/assets/a65c02aa-404f-4049-86b3-80eced293298)
+![infrastructure](./pictures/infrastructure.png)
 
 ---
 

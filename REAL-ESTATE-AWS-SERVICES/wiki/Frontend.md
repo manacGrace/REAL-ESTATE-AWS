@@ -24,6 +24,10 @@ When a user visits the application:
 4. **Authentication** enables user registration and login
 ![auth](./pictures/auth.png)
 5. **Favorites** let users save and manage preferred properties
+![liking](./pictures/liking.png)
+![portfolio](./pictures/portfolio.png)
+6. **Profile** user's profile page
+![profile](./pictures/profile.png)
 
 ### API Integration
 
@@ -90,5 +94,3 @@ The frontend handles various error scenarios:
 - **Authentication Errors**: Invalid login attempts
 - **Loading States**: User feedback during API calls
 - **Validation**: Form input validation
-
-### Performance Optimizations
