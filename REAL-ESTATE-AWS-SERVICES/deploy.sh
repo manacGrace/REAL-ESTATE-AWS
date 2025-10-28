@@ -67,10 +67,11 @@ else
 fi
 sleep 3
 
-# Clean up any existing containers
-echo "Cleaning up existing containers..."
-sudo docker compose down || true
+# Clean up any existing containers and volumes
+echo "Cleaning up existing containers and volumes..."
+sudo docker compose down -v || true
 sleep 5
+sudo docker volume prune -f || true
 sudo docker system prune -a --volumes -f || true
 sleep 15
 
