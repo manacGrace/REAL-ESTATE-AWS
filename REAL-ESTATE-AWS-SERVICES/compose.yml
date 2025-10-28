@@ -30,10 +30,10 @@ services:
     ports:
       - "${API_PORT}:${API_PORT}"
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mariadb://mariadb:3306/${DB_DATABASE}
+      - SPRING_DATASOURCE_URL=jdbc:mariadb://mariadb:3306/realdb
       - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}
-      - SERVER_PORT=${API_PORT}
+      - SPRING_DATASOURCE_PASSWORD=123
+      - SERVER_PORT=8888
       - SPRING_DATASOURCE_DRIVER-CLASS-NAME=org.mariadb.jdbc.Driver
       - VITE_FRONTEND_SUBDOMAIN=${VITE_FRONTEND_SUBDOMAIN}
       - MY_DOMAIN=${MY_DOMAIN}
@@ -53,13 +53,13 @@ services:
     networks:
       - ${NETWORK_NAME}
     environment:
-      - MARIADB_ROOT_PASSWORD=${DB_PASSWORD}
-      - MARIADB_DATABASE=${DB_DATABASE}
+      - MARIADB_ROOT_PASSWORD=123
+      - MARIADB_DATABASE=realdb
     volumes:
       - db:/var/lib/mysql
       - ./seed/seed.sql:/docker-entrypoint-initdb.d/seed.sql
     healthcheck:
-      test: ["CMD", "mariadb", "--host=localhost", "--user=root", "--password=${DB_PASSWORD}", "--execute=SELECT 1"]
+      test: ["CMD", "mariadb", "--host=localhost", "--user=root", "--password=123", "--execute=SELECT 1"]
       start_period: 10s
       interval: 10s
       timeout: 5s
@@ -108,5 +108,5 @@ volumes:
   db:
 
 networks:
-  ${NETWORK_NAME}:
+  real-network:
     driver: bridge

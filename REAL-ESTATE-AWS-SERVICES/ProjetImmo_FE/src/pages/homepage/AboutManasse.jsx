@@ -11,7 +11,7 @@ function AboutManasse() {
         <Row>
           <Col>
             <h1 id="titleTextManasse">
-              Manasse <br /> Teg <br /> Gbegnohou
+              Manassé <br /> Teg <br /> Gbegnohou
             </h1>
             <p id="textManasse">
               Nous développons un site web de vente de maisons. 
