@@ -8,7 +8,7 @@ The application is fully containerized using **Docker** and orchestrated with **
 
 The application runs as four interconnected containers:
 
-**Frontend Container** (React + Nginx):
+**Frontend Container** (React):
 - Serves the React application as static files
 - Handles client-side routing with Nginx configuration
 - Optimized for performance with caching and compression
@@ -31,13 +31,13 @@ The application runs as four interconnected containers:
 ### How Services Communicate
 
 **External Traffic Flow**:
-1. User visits `projetImmo.manac.duckdns.org`
+1. User visits `https://manacgrace-real-estate.yourDomain.duckdns.org/`
 2. Traefik receives the request on port 443 (HTTPS)
 3. Traefik routes to frontend container based on domain
 4. Frontend serves the React application
 
 **API Requests**:
-1. Frontend makes API calls to `projetImmo-backend.manac.duckdns.org`
+1. Frontend makes API calls to `https://manacgrace-real-estate-backend.yourDomain.duckdns.org/api/`
 2. Traefik routes these to the backend container
 3. Backend processes requests and queries the database
 4. Database returns data to backend, which responds to frontend

@@ -16,9 +16,13 @@ The application uses a **component-based architecture**:
 
 When a user visits the application:
 1. **Homepage** displays property gallery and navigation
+![home](./pictures/home.png)
 2. **Property browsing** allows viewing all listings with search/filter
+![galerie](./pictures/galerie.png)
 3. **Map view** shows properties geographically using Mapbox GL
+![map](./pictures/map.png)
 4. **Authentication** enables user registration and login
+![auth](./pictures/auth.png)
 5. **Favorites** let users save and manage preferred properties
 
 ### API Integration
@@ -26,7 +30,7 @@ When a user visits the application:
 The frontend communicates with the backend through a centralized `apiService.js`:
 
 ```javascript
-const API_URL = "https://projetImmo-backend.manac.duckdns.org/api";
+const API_URL = "https://manacgrace-real-estate-backend.yourDomain.duckdns.org/api/";
 
 // Fetch all properties
 export const getAllHouses = async () => {
@@ -88,8 +92,3 @@ The frontend handles various error scenarios:
 - **Validation**: Form input validation
 
 ### Performance Optimizations
-
-- **Code Splitting**: Automatic route-based splitting
-- **Image Optimization**: Efficient property image loading
-- **Caching**: Browser caching for static assets
-- **Lazy Loading (Can be improved)**: Components loaded on demand

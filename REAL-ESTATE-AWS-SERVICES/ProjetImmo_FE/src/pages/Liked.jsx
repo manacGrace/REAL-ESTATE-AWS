@@ -25,8 +25,10 @@ function Liked() {
     }
   };
   const loadLikedHouses = async () => {
-    const maisons = await loadAllMaisonsLike();
-    setMaisons(maisons)
+    if (userId) {
+      const maisons = await loadAllMaisonsLike();
+      setMaisons(maisons)
+    }
   }
   useEffect(() => {
     if (userId) {

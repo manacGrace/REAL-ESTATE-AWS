@@ -31,9 +31,13 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/user/signIn").permitAll()
                 .requestMatchers("/api/user/signUp").permitAll()
+                .requestMatchers("/api/user/getById/{id}").permitAll()  // Allow user profile access
                 .requestMatchers("/api/maisons/getAll").permitAll()  // Public property browsing
                 .requestMatchers("/api/maisons/getById/{id}").permitAll()  // Public property details
                 .requestMatchers("/api/region/**").permitAll()  // Public region data
+                .requestMatchers("/api/maisonLiked/getAllMaisonLiked/{idUser}").permitAll()  // Allow liked items access
+                .requestMatchers("/api/maisonLiked/addLike/{idUser}/{idMaison}").permitAll()  // Allow adding likes
+                .requestMatchers("/api/maisonLiked/removeLike/{idUser}/{idMaison}").permitAll()  // Allow removing likes
                 .anyRequest().authenticated()  // Require authentication for everything else
             );
 

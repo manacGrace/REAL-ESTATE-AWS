@@ -1,5 +1,21 @@
 # REAL-ESTATE-AWS
 
+## Requirements
+- Install the AWS CLI
+- Install Terraform
+- Clone this repository
+
+---
+
+## Deployment Instructions
+
+### Prerequisites
+- Install the AWS CLI
+- Install Terraform
+- Set up your AWS CLI credentials:
+  - On **Windows**: `C:/Users/yourUser/.aws/credentials`
+  - On **Linux**: `~/.aws/credentials`
+
 clone this repo on your desktop
 git clone https://github.com/ManasseTegGbegnohou/REAL-ESTATE-AWS.git
 
