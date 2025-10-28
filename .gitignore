@@ -11,6 +11,7 @@
 .env.*
 !.env.template
 !.env.example
+env.example
 
 # ===========================================
 # TERRAFORM (Infrastructure)
