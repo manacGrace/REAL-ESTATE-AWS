@@ -1,4 +1,4 @@
-# Introduction
+# Infrastructure
 
 This part of the project aims to deploy a secure, highly available, multi-services cloud infrastructure on **AWS** using **Terraform** to simplify and automate the process
 
@@ -6,7 +6,7 @@ This part of the project aims to deploy a secure, highly available, multi-servic
 
 # AWS Network Infrastructure Diagram
 
-![infrastructure](./pictures/infrastructure.png)
+![infrastructure](https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/refs/heads/main/REAL-ESTATE-AWS-SERVICES/wiki/pictures/infrastructure.png)
 
 ---
 

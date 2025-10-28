@@ -28,11 +28,14 @@ Registration works similarly but creates a new user with an encrypted password.
 Properties are stored as `Maison` entities with detailed information (address, rooms, price, coordinates). The API provides:
 
 - **Public access** to browse all properties (`/api/maisons/getAll`)
-![getAll](./pictures/getAll.png)
+
+![getAll](https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/refs/heads/main/REAL-ESTATE-AWS-SERVICES/wiki/pictures/getAll.png)
 - **Search functionality** by various criteria (area, rooms, price)(handled in frontend)
-![filter](./pictures/filter.png)
+
+![filter](https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/refs/heads/main/REAL-ESTATE-AWS-SERVICES/wiki/pictures/filter.png)
 - **Detailed views** of individual properties
-![getById](./pictures/getById.png)
+
+![getById](https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/refs/heads/main/REAL-ESTATE-AWS-SERVICES/wiki/pictures/getById.png)
 
 ### Favorites System
 

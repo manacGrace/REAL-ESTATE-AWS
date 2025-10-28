@@ -16,18 +16,24 @@ The application uses a **component-based architecture**:
 
 When a user visits the application:
 1. **Homepage** displays property gallery and navigation
-![home](./pictures/home.png)
+
+![home](https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/refs/heads/main/REAL-ESTATE-AWS-SERVICES/wiki/pictures/home.png)
 2. **Property browsing** allows viewing all listings with search/filter
-![galerie](./pictures/galerie.png)
+
+![galerie](https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/refs/heads/main/REAL-ESTATE-AWS-SERVICES/wiki/pictures/galerie.png)
 3. **Map view** shows properties geographically using Mapbox GL
-![map](./pictures/map.png)
+
+![map](https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/refs/heads/main/REAL-ESTATE-AWS-SERVICES/wiki/pictures/map.png)
 4. **Authentication** enables user registration and login
-![auth](./pictures/auth.png)
+
+![auth](https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/refs/heads/main/REAL-ESTATE-AWS-SERVICES/wiki/pictures/auth.png)
 5. **Favorites** let users save and manage preferred properties
-![liking](./pictures/liking.png)
-![portfolio](./pictures/portfolio.png)
+
+![liking](https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/refs/heads/main/REAL-ESTATE-AWS-SERVICES/wiki/pictures/liking.png)
+![portfolio](https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/refs/heads/main/REAL-ESTATE-AWS-SERVICES/wiki/pictures/portfolio.png)
 6. **Profile** user's profile page
-![profile](./pictures/profile.png)
+
+![profile](https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/refs/heads/main/REAL-ESTATE-AWS-SERVICES/wiki/pictures/profile.png)
 
 ### API Integration
 

@@ -125,12 +125,12 @@ Once deployed, access your application at:
 
 Detailed documentation is available in the `wiki/` directory:
 
-- [Infrastructure Setup](./REAL-ESTATE-AWS-INFRASTRUCTURE-AS-CODE/wiki/Infrastructure.md)
-- [Frontend Documentation](./REAL-ESTATE-AWS-SERVICES/wiki/Frontend.md)
-- [Backend Documentation](./REAL-ESTATE-AWS-SERVICES/wiki/Backend.md)
-- [Database Documentation](./REAL-ESTATE-AWS-SERVICES/wiki/Database.md)
-- [Container Documentation](./REAL-ESTATE-AWS-SERVICES/wiki/Containers.md)
-- [Technology Stack](./REAL-ESTATE-AWS-SERVICES/wiki/Technology-Stack.md)
+- [Infrastructure Setup](https://github.com/manacGrace/REAL-ESTATE-AWS/wiki/0.-Infrastructure)
+- [Frontend Documentation](https://github.com/manacGrace/REAL-ESTATE-AWS/wiki/1.-Frontend)
+- [Backend Documentation](https://github.com/manacGrace/REAL-ESTATE-AWS/wiki/2.-Backend)
+- [Database Documentation](https://github.com/manacGrace/REAL-ESTATE-AWS/wiki/3.-Database)
+- [Container Documentation](https://github.com/manacGrace/REAL-ESTATE-AWS/wiki/4.-Containers)
+- [Technology Stack](https://github.com/manacGrace/REAL-ESTATE-AWS/wiki/5.-Technology-Stack)
 
 ## Development
 
@@ -167,5 +167,3 @@ Detailed documentation is available in the `wiki/` directory:
 cd REAL-ESTATE-AWS-SERVICES
 docker-compose up -d
 ```
-
-- **Manasse Teg Gbegnohou** - *Initial work* - [manacGrace](https://github.com/manacGrace)
