@@ -10,7 +10,7 @@ function AboutAymen() {
       <Container>
         <Row>
           <Col xs={10}>
-            <img className="imagesAymen" src="https://github.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/blob/main/seed/pictures/picsAboutUs/picsAymen/image_projetweb.jpg?raw=true"
+            <img className="imagesAymen" src="https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/refs/heads/main/REAL-ESTATE-AWS-SERVICES/seed/pictures/picsAboutUs/picsAymen/image_projetweb.jpg?raw=true"
               alt="Image Aymen" />
           </Col>
           <Col xs={10}>

@@ -27,8 +27,7 @@ sleep 3
 
 # Clone the main project repo
 echo "Cloning Repo..."
-git clone https://github.com/ManasseTegGbegnohou/REAL-ESTATE-AWS.git
-cd REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES
+git clone https://github.com/manacGrace/REAL-ESTATE-AWS.git
 
 # Create necessary directories
 echo "Creating necessary directories..."

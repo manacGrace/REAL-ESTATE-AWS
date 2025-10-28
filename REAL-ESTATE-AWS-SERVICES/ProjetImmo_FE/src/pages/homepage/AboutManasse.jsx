@@ -19,18 +19,18 @@ function AboutManasse() {
               différentes propriétés à vendre.  <br /> 
               Nous sommes une équipe de trois étudiants.
             </p>
-          </Col>
+          </Col>{/* 
           <Col>
             <img
               className="imagesManasse"
-              src="https://github.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/blob/main/seed/pictures/picsAboutUs/picsManasse/manasse01.jpg?raw=true"
+              src="https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/refs/heads/main/REAL-ESTATE-AWS-SERVICES/seed/pictures/picsAboutUs/picsManasse/manasse01.jpg?raw=true"
               alt="Image Manasse"
             />
-          </Col>
+          </Col> */}
           <Col>
             <img
               className="imagesManasse"
-              src="https://github.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/blob/main/seed/pictures/picsAboutUs/picsManasse/manasse07.jpg?raw=true"
+              src="https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/refs/heads/main/REAL-ESTATE-AWS-SERVICES/seed/pictures/picsAboutUs/picsManasse/manasse07.jpg?raw=true"
               alt="Image Manasse"
             />  
           </Col>

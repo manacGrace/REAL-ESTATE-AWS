@@ -10,7 +10,7 @@ function AboutWill() {
       <Container>
         <Row>
           <Col>
-            <img className="imagesWill" src="https://github.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/blob/main/seed/pictures/picsAboutUs/picsWill/gengar.jpg?raw=true" alt="Image Will" />
+            <img className="imagesWill" src="https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/refs/heads/main/REAL-ESTATE-AWS-SERVICES/seed/pictures/picsAboutUs/picsWill/gengar.jpg?raw=true" alt="Image Will" />
           </Col>
           <Col xs={8}>
             <div>

@@ -10,22 +10,22 @@ function SectionRedirectGalerie() {
   var listmaison = [
     {
       idMaison: 14,
-      photo: "https://github.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/blob/main/seed/pictures/maisonsGalerie/maison14.jpg?raw=true",
+      photo: "https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/refs/heads/main/REAL-ESTATE-AWS-SERVICES/seed/pictures/maisonsGalerie/maison14.jpg?raw=true",
       region: "Longueuil",
     },
     {
       idMaison: 15,
-      photo: "https://github.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/blob/main/seed/pictures/maisonsGalerie/maison15.jpg?raw=true",
+      photo: "https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/refs/heads/main/REAL-ESTATE-AWS-SERVICES/seed/pictures/maisonsGalerie/maison15.jpg?raw=true",
       region: "Montreal",
     },
     {
       idMaison: 20,
-      photo: "https://github.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/blob/main/seed/pictures/maisonsGalerie/maison20.jpg?raw=true",
+      photo: "https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/refs/heads/main/REAL-ESTATE-AWS-SERVICES/seed/pictures/maisonsGalerie/maison20.jpg?raw=true",
       region: "Laval",
     },
     {
       idMaison: 25,
-      photo: "https://github.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/blob/main/seed/pictures/maisonsGalerie/maison25.jpg?raw=true",
+      photo: "https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/refs/heads/main/REAL-ESTATE-AWS-SERVICES/seed/pictures/maisonsGalerie/maison25.jpg?raw=true",
       region: "Laval",
     },
   ];
