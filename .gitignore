@@ -10,8 +10,7 @@
 .env
 .env.*
 !.env.template
-# env.example file
-#env.example
+!.env.example
 
 # ===========================================
 # TERRAFORM (Infrastructure)
@@ -297,9 +296,6 @@ $RECYCLE.BIN/
 # ===========================================
 # SECURITY & SENSITIVE FILES
 # ===========================================
-# Environment files
-*.env
-.env.*
 
 # SSH keys
 *.pem
