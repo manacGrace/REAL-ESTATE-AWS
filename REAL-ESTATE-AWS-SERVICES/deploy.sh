@@ -29,11 +29,11 @@ echo "Environment variables loaded successfully"
 
 # Validate required environment variables
 echo "Validating environment variables..."
-required_vars=("DUCKDNS_TOKEN" "ACME_EMAIL" "MY_DOMAIN" "DB_PASSWORD" "DB_DATABASE")
+required_vars=("DUCKDNS_TOKEN" "ACME_EMAIL" "MY_DOMAIN")
 missing_vars=()
 
 for var in "${required_vars[@]}"; do
-    if [[ -z "${!var}" || "${!var}" == "domain.duckdns.org" || "${!var}" == "duckdnsToken" || "${!var}" == "PSW" || "${!var}" == "DBNAME" || "${!var}" == "mail@mail.com" ]]; then
+    if [[ -z "${!var}" || "${!var}" == "domain.duckdns.org" || "${!var}" == "duckdnsToken" || "${!var}" == "mail@mail.com" ]]; then
         missing_vars+=("$var")
     fi
 done

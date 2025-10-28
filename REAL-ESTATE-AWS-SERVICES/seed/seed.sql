@@ -1,8 +1,63 @@
+-- =======================================================
+-- Real Estate Database Initialization Script
+-- =======================================================
+DROP DATABASE IF EXISTS `realdb`;
 -- Create database if it doesn't exist
-CREATE DATABASE IF NOT EXISTS `realdb` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_uca1400_ai_ci;
+CREATE DATABASE IF NOT EXISTS `realdb`;
+
 USE `realdb`;
 
+-- Disable foreign key checks temporarily
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- Drop tables in dependency order (child → parent)
+DROP TABLE IF EXISTS `maison_liked_by_user`;
 DROP TABLE IF EXISTS `maison`;
+DROP TABLE IF EXISTS `user`;
+DROP TABLE IF EXISTS `region`;
+DROP TABLE IF EXISTS `userdto`;
+
+-- Re-enable foreign key checks
+SET FOREIGN_KEY_CHECKS = 1;
+
+-- =======================================================
+-- Create region table (must exist before maison)
+-- =======================================================
+CREATE TABLE IF NOT EXISTS `region` (
+  `id_region` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name_region` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_region`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+
+INSERT INTO `region` (`id_region`, `name_region`) VALUES
+  (1, 'Montreal'),
+  (2, 'Terrebonne'),
+  (3, 'Longueuil'),
+  (4, 'Boucherville'),
+  (5, 'Varrennes'),
+  (6, 'Elche');
+
+-- =======================================================
+-- Create user table
+-- =======================================================
+CREATE TABLE IF NOT EXISTS `user` (
+  `id_user` bigint(20) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) DEFAULT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_user`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+
+INSERT INTO `user` (`id_user`, `email`, `first_name`, `last_name`, `password`) VALUES
+  (4, 'lamb@123.com', 'lam', 'n', '$2a$10$t7zy1wzgAE7iRdCTTgvaTOND9O1GjuybPKpXubzccEJGRghL1ktUy'),
+  (5, 'andy@123.com', 'andy', 'la-futu', '$2a$10$m6Is0EthzFw2//yuQqV6CuOW2yAEpfUmqN8.SprX1/8TvK0rwpDNW'),
+  (6, 'toto@toto.com', 'Marc-Antoine', 'Mercier', '$2a$10$1punYfBxNKBc/NxyjbeJkuWPY1zwhs7.vD5Rkjaob0CPFn5oC.Lq2'),
+  (8, 'aymen@test.com', 'aymen', 'ker', '$2a$10$IBc6gRkXAywhq6m9yRJ5i.RPSWNYNPCXSK50yC9Bj2m0CohmuvMF.');
+
+-- =======================================================
+-- Create maison table (depends on region)
+-- =======================================================
 CREATE TABLE IF NOT EXISTS `maison` (
   `area` int(11) DEFAULT NULL,
   `nb_bedroom` int(11) DEFAULT NULL,
@@ -17,91 +72,65 @@ CREATE TABLE IF NOT EXISTS `maison` (
   `latitude` double DEFAULT NULL,
   `longitude` double DEFAULT NULL,
   PRIMARY KEY (`id_maison`),
-  KEY `FK6qo9j41vfsjoes9sgg0rg4qlc` (`region_id_region`),
-  CONSTRAINT `FK6qo9j41vfsjoes9sgg0rg4qlc` FOREIGN KEY (`region_id_region`) REFERENCES `region` (`id_region`)
+  KEY `FK_region` (`region_id_region`),
+  CONSTRAINT `FK_region` FOREIGN KEY (`region_id_region`) REFERENCES `region` (`id_region`)
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
-INSERT INTO `maison` (`area`, `nb_bedroom`, `nb_room`, `nb_toilet`, `price`, `id_maison`, `region_id_region`, `address`, `link_image`, `postal_code`, `latitude`, `longitude`) VALUES
-	(5417, 1, 5, 1, 1517045, 1, 4, '4th Floor', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison01.jpg?raw=true', 'LTBG', 45.6942, -73.6331),
-	(11121, 2, 2, 2, 1644335, 2, 1, 'Apt 551', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison02.jpg?raw=true', 'AK33', 45.6836, -73.4362),
-	(4973, 3, 6, 3, 252955, 3, 2, 'Room 1160', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison03.jpg?raw=true', 'SVSE', 45.5017, -73.5673),
-	(8963, 4, 4, 2, 1016219, 4, 2, 'Apt 12', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison04.jpg?raw=true', 'HAGH', 45.60429, -73.453583),
-	(16283, 5, 5, 1, 1348373, 5, 4, 'Suite 24', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison05.jpg?raw=true', 'FBHK', 45.668896, -73.872871),
-	(14650, 3, 7, 2, 1484191, 6, 3, 'PO Box 13440', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison06.jpg?raw=true', 'SKEB', 45.536945, -73.510712),
-	(5736, 5, 7, 2, 1514030, 7, 4, 'Apt 283', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison07.jpg?raw=true', NULL, 45.5017, -73.5673),
-	(14236, 4, 7, 2, 1372568, 8, 1, 'PO Box 74346', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison08.jpg?raw=true', 'KPKF', 45.507, -73.566),
-	(16270, 4, 6, 2, 500376, 9, 3, '10th Floor', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison09.jpg?raw=true', 'KMKG', 45.4845, -73.5871),
-	(18792, 4, 7, 3, 1098485, 10, 2, 'PO Box 14142', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison10.jpg?raw=true', 'KPFC', 45.5415, -73.6181),
-	(18588, 3, 7, 3, 1462979, 11, 5, 'Suite 83', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison11.jpg?raw=true', 'EGKA', 45.536, -73.5884),
-	(19828, 5, 9, 2, 1211976, 12, 1, 'Apt 100', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison12.jpg?raw=true', 'NSFA', 45.4995, -73.5763),
-	(18805, 3, 8, 2, 517219, 13, 4, 'PO Box 23885', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison13.jpg?raw=true', 'WAPH', 45.5343, -73.5941),
-	(13725, 3, 7, 3, 1178434, 14, 5, 'Room 603', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison14.jpg?raw=true', 'WAJE', 45.5368, -73.5665),
-	(15774, 5, 7, 3, 1098688, 15, 3, 'Room 1346', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison15.jpg?raw=true', NULL, 45.5143, -73.563),
-	(8982, 3, 8, 3, 156572, 16, 1, 'PO Box 90563', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison16.jpg?raw=true', 'LEVT', 45.5087, -73.5691),
-	(3745, 3, 7, 2, 1266488, 17, 2, 'PO Box 53335', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison17.jpg?raw=true', 'TFFM', 45.5289, -73.5524),
-	(19498, 4, 5, 2, 818803, 18, 5, 'PO Box 401', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison18.jpg?raw=true', 'FVRG', 45.5162, -73.5823),
-	(4799, 2, 6, 2, 553279, 19, 5, '5th Floor', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison19.jpg?raw=true', NULL, 45.4953, -73.5721),
-	(17366, 2, 4, 1, 583003, 20, 2, 'Suite 29', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison20.jpg?raw=true', 'RORE', 45.5407, -73.5604),
-	(6476, 2, 4, 1, 1064207, 21, 5, '19th Floor', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison21.jpg?raw=true', 'WATM', 45.5231, -73.5796),
-	(3789, 5, 5, 1, 427600, 22, 3, 'Suite 70', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison22.jpg?raw=true', 'SLGY', 45.5355, -73.5513),
-	(3041, 3, 6, 2, 212134, 23, 5, 'Room 156', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison23.jpg?raw=true', 'KCIC', 45.5206, -73.5649),
-	(16229, 2, 7, 3, 1064989, 24, 4, 'Apt 97', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison24.jpg?raw=true', 'GMMI', 45.5098, -73.5572),
-	(24294, 4, 12, 4, 1500000, 25, 6, 'La Galia-Bonavista', 'https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maisonElche.jpg?raw=true', 'ZGHC', 38.29792514798492, -0.6856185786054342);
+INSERT INTO `maison`
+(`area`, `nb_bedroom`, `nb_room`, `nb_toilet`, `price`, `id_maison`, `region_id_region`, `address`, `link_image`, `postal_code`, `latitude`, `longitude`) VALUES
+(5417,1,5,1,1517045,1,4,'4th Floor','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison01.jpg?raw=true','LTBG',45.6942,-73.6331),
+(11121,2,2,2,1644335,2,1,'Apt 551','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison02.jpg?raw=true','AK33',45.6836,-73.4362),
+(4973,3,6,3,252955,3,2,'Room 1160','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison03.jpg?raw=true','SVSE',45.5017,-73.5673),
+(8963,4,4,2,1016219,4,2,'Apt 12','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison04.jpg?raw=true','HAGH',45.60429,-73.453583),
+(16283,5,5,1,1348373,5,4,'Suite 24','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison05.jpg?raw=true','FBHK',45.668896,-73.872871),
+(14650,3,7,2,1484191,6,3,'PO Box 13440','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison06.jpg?raw=true','SKEB',45.536945,-73.510712),
+(5736,5,7,2,1514030,7,4,'Apt 283','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison07.jpg?raw=true',NULL,45.5017,-73.5673),
+(14236,4,7,2,1372568,8,1,'PO Box 74346','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison08.jpg?raw=true','KPKF',45.507,-73.566),
+(16270,4,6,2,500376,9,3,'10th Floor','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison09.jpg?raw=true','KMKG',45.4845,-73.5871),
+(18792,4,7,3,1098485,10,2,'PO Box 14142','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison10.jpg?raw=true','KPFC',45.5415,-73.6181),
+(18588,3,7,3,1462979,11,5,'Suite 83','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison11.jpg?raw=true','EGKA',45.536,-73.5884),
+(19828,5,9,2,1211976,12,1,'Apt 100','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison12.jpg?raw=true','NSFA',45.4995,-73.5763),
+(18805,3,8,2,517219,13,4,'PO Box 23885','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison13.jpg?raw=true','WAPH',45.5343,-73.5941),
+(13725,3,7,3,1178434,14,5,'Room 603','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison14.jpg?raw=true','WAJE',45.5368,-73.5665),
+(15774,5,7,3,1098688,15,3,'Room 1346','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison15.jpg?raw=true',NULL,45.5143,-73.563),
+(8982,3,8,3,156572,16,1,'PO Box 90563','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison16.jpg?raw=true','LEVT',45.5087,-73.5691),
+(3745,3,7,2,1266488,17,2,'PO Box 53335','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison17.jpg?raw=true','TFFM',45.5289,-73.5524),
+(19498,4,5,2,818803,18,5,'PO Box 401','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison18.jpg?raw=true','FVRG',45.5162,-73.5823),
+(4799,2,6,2,553279,19,5,'5th Floor','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison19.jpg?raw=true',NULL,45.4953,-73.5721),
+(17366,2,4,1,583003,20,2,'Suite 29','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison20.jpg?raw=true','RORE',45.5407,-73.5604),
+(6476,2,4,1,1064207,21,5,'19th Floor','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison21.jpg?raw=true','WATM',45.5231,-73.5796),
+(3789,5,5,1,427600,22,3,'Suite 70','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison22.jpg?raw=true','SLGY',45.5355,-73.5513),
+(3041,3,6,2,212134,23,5,'Room 156','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison23.jpg?raw=true','KCIC',45.5206,-73.5649),
+(16229,2,7,3,1064989,24,4,'Apt 97','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maison24.jpg?raw=true','GMMI',45.5098,-73.5572),
+(24294,4,12,4,1500000,25,6,'La Galia-Bonavista','https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES/refs/heads/main/seed/pictures/maisonsGalerie/maisonElche.jpg?raw=true','ZGHC',38.29792514798492,-0.6856185786054342);
 
-DROP TABLE IF EXISTS `maison_liked_by_user`;
+-- =======================================================
+-- Create maison_liked_by_user (depends on user & maison)
+-- =======================================================
 CREATE TABLE IF NOT EXISTS `maison_liked_by_user` (
   `id_maison_liked_by_user` bigint(20) NOT NULL AUTO_INCREMENT,
   `maison_id_maison` bigint(20) DEFAULT NULL,
   `user_id_user` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id_maison_liked_by_user`),
-  KEY `FKcqbaxik2l0fu2rkannv05axle` (`maison_id_maison`),
-  KEY `FK2qblu7pxradcgb5x1ne9uqinu` (`user_id_user`),
-  CONSTRAINT `FK2qblu7pxradcgb5x1ne9uqinu` FOREIGN KEY (`user_id_user`) REFERENCES `user` (`id_user`),
-  CONSTRAINT `FKcqbaxik2l0fu2rkannv05axle` FOREIGN KEY (`maison_id_maison`) REFERENCES `maison` (`id_maison`)
+  KEY `FK_maison` (`maison_id_maison`),
+  KEY `FK_user` (`user_id_user`),
+  CONSTRAINT `FK_user` FOREIGN KEY (`user_id_user`) REFERENCES `user` (`id_user`),
+  CONSTRAINT `FK_maison` FOREIGN KEY (`maison_id_maison`) REFERENCES `maison` (`id_maison`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
 INSERT INTO `maison_liked_by_user` (`id_maison_liked_by_user`, `maison_id_maison`, `user_id_user`) VALUES
-	(16, 1, 8),
-	(17, 21, 8),
-	(18, 4, 8),
-	(19, 3, 8),
-	(20, 1, 4),
-	(21, 21, 4),
-	(22, 4, 4),
-	(23, 3, 4);
+(16, 1, 8),
+(17, 21, 8),
+(18, 4, 8),
+(19, 3, 8),
+(20, 1, 4),
+(21, 21, 4),
+(22, 4, 4),
+(23, 3, 4);
 
-DROP TABLE IF EXISTS `region`;
-CREATE TABLE IF NOT EXISTS `region` (
-  `id_region` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name_region` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id_region`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
-
-INSERT INTO `region` (`id_region`, `name_region`) VALUES
-	(1, 'Montreal'),
-	(2, 'Terrebonne'),
-	(3, 'Longueuil'),
-	(4, 'Boucherville'),
-	(5, 'Varrennes'),
-	(6, 'Elche');
-
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE IF NOT EXISTS `user` (
-  `id_user` bigint(20) NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) DEFAULT NULL,
-  `first_name` varchar(255) DEFAULT NULL,
-  `last_name` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
-
-INSERT INTO `user` (`id_user`, `email`, `first_name`, `last_name`, `password`) VALUES
-	(4, 'lamb@123.com', 'lam', 'n', '$2a$10$t7zy1wzgAE7iRdCTTgvaTOND9O1GjuybPKpXubzccEJGRghL1ktUy'),
-	(5, 'andy@123.com', 'andy', 'la-futu', '$2a$10$m6Is0EthzFw2//yuQqV6CuOW2yAEpfUmqN8.SprX1/8TvK0rwpDNW'),
-	(6, 'toto@toto.com', 'Marc-Antoine', 'Mercier', '$2a$10$1punYfBxNKBc/NxyjbeJkuWPY1zwhs7.vD5Rkjaob0CPFn5oC.Lq2'),
-	(8, 'aymen@test.com', 'aymen', 'ker', '$2a$10$IBc6gRkXAywhq6m9yRJ5i.RPSWNYNPCXSK50yC9Bj2m0CohmuvMF.');
-
-DROP TABLE IF EXISTS `userdto`;
+-- =======================================================
+-- Create userdto (independent table)
+-- =======================================================
 CREATE TABLE IF NOT EXISTS `userdto` (
   `id_user` bigint(20) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) DEFAULT NULL,
@@ -109,3 +138,7 @@ CREATE TABLE IF NOT EXISTS `userdto` (
   `last_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+
+-- =======================================================
+-- Done!
+-- =======================================================
