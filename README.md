@@ -4,6 +4,7 @@
 
 ![Application Homepage](./REAL-ESTATE-AWS-SERVICES/wiki/pictures/home.png)
 
+> Visit the [wiki](https://github.com/manacGrace/REAL-ESTATE-AWS/wiki/1.-Frontend) for more information!
 ---
 
 ## Features
