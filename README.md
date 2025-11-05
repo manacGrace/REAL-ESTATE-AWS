@@ -55,7 +55,7 @@ Before deploying, ensure you have:
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/ManasseTegGbegnohou/REAL-ESTATE-AWS.git
+git clone https://github.com/manacGrace/REAL-ESTATE-AWS.git
 cd REAL-ESTATE-AWS
 ```
 
