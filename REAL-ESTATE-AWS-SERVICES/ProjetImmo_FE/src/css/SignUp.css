@@ -4,7 +4,7 @@
 
 :root {
   /* Sign Up specific colors */
-  --bg-signup-light: rgba(255, 255, 255, 0.95);
+  --bg-signup-light: rgba(255, 255, 255, 0.2);
   --bg-light: white;
   --form-bg-light: white;
   --text-light: #000000;
@@ -71,7 +71,6 @@ body.dark-mode .signup-container::before {
 
 .signup-form-wrapper:hover {
   box-shadow: var(--shadow-xl, 0 16px 32px rgba(0, 0, 0, 0.4));
-  transform: translateY(-2px);
 }
 
 .signup-form-wrapper h2 {
@@ -146,12 +145,10 @@ body.dark-mode .signup-container::before {
 
 .buttonSingUp[type="submit"]:hover {
   background-color: var(--button-hover-bg-light);
-  transform: translateY(-2px);
   box-shadow: var(--shadow-md, 0 4px 8px rgba(0, 0, 0, 0.15));
 }
 
 .buttonSingUp[type="submit"]:active {
-  transform: translateY(0);
   box-shadow: var(--shadow-sm, 0 2px 4px rgba(0, 0, 0, 0.1));
 }
 

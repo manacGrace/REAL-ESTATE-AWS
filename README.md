@@ -136,7 +136,7 @@ Detailed documentation is available in the `wiki/` directory:
 
 ## Development
 
-### Local Development Setup
+### Local Development Setup (Work in progress, these instructions will not work)
 
 1. **Frontend Development**:
    ```bash

@@ -57,8 +57,9 @@
 
 .galerieCardsDiv,
 .galerieCardsDivToCenter {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--spacing-xl, 2rem);
   padding: 0 clamp(1rem, 5vw, 5rem) var(--spacing-xxl, 3rem);
   margin-top: var(--spacing-xl, 2rem);
@@ -79,7 +80,6 @@
   text-decoration: none;
   color: inherit;
   display: block;
-  height: 100%;
   transition: transform var(--transition);
 }
 
@@ -95,17 +95,13 @@
 
 .generatedCards {
   width: 100%;
-  max-width: 100%;
-  height: 100%;
+  max-height: fit-content;
   padding: var(--spacing-md, 1rem);
   border-radius: var(--border-radius);
   background-color: var(--card-bg-light);
   box-shadow: var(--card-shadow);
   transition: all var(--transition);
-  display: flex;
-  flex-direction: column;
   border: none;
-  overflow: hidden;
 }
 
 .generatedCards.card:hover {
@@ -116,7 +112,7 @@
 
 .card-img-top {
   width: 100%;
-  height: 220px;
+  height: 200px;
   border-radius: var(--radius-md, 8px);
   object-fit: cover;
   margin-bottom: var(--spacing-md, 1rem);
@@ -307,7 +303,6 @@ body.dark-mode .dropdown-divider {
 @media (max-width: 992px) {
   .galerieCardsDiv,
   .galerieCardsDivToCenter {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: var(--spacing-lg, 1.5rem);
     padding: 0 var(--spacing-md, 1rem) var(--spacing-xl, 2rem);
   }
@@ -316,7 +311,6 @@ body.dark-mode .dropdown-divider {
 @media (max-width: 768px) {
   .galerieCardsDiv,
   .galerieCardsDivToCenter {
-    grid-template-columns: 1fr;
     gap: var(--spacing-md, 1rem);
     padding: 0 var(--spacing-sm, 0.5rem) var(--spacing-lg, 1.5rem);
   }
