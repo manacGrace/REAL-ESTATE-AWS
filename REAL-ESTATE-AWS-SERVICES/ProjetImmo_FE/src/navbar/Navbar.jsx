@@ -55,12 +55,10 @@ function Navbar({ toggleDarkMode, isDarkMode }) {
               )}
             </ul>
             
-            <button
+            <i
+              className={isDarkMode ? "bx bx-sun" : "bx bx-moon"}
               onClick={toggleDarkMode}
-              className="btn btn-outline-secondary ms-3"
-            >
-              {isDarkMode ? "Mode Clair" : "Mode Sombre"}
-            </button>
+            ></i>
 
             {!isAuthenticated && (
               <i

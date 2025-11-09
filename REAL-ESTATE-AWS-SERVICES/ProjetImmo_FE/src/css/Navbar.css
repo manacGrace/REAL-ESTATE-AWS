@@ -153,10 +153,12 @@ header a:hover {
 }
 
 /* ============================================
-   USER ICON
+   USER ICON & DARK MODE TOGGLE ICONS
    ============================================ */
 
-.bx-user-circle {
+.bx-user-circle,
+.bx-sun,
+.bx-moon {
   margin-left: var(--spacing-md, 1rem);
   cursor: pointer;
   font-size: clamp(1.75rem, 3vw, 2.5rem);
@@ -166,7 +168,9 @@ header a:hover {
   border-radius: 50%;
 }
 
-.bx-user-circle:hover {
+.bx-user-circle:hover,
+.bx-sun:hover,
+.bx-moon:hover {
   color: var(--brand-primary, #198754);
   background-color: rgba(25, 135, 84, 0.1);
   transform: scale(1.1);
@@ -212,11 +216,15 @@ body.dark-mode .nav-item a:hover {
   color: var(--navbar-dark-text);
 }
 
-body.dark-mode .bx-user-circle {
+body.dark-mode .bx-user-circle,
+body.dark-mode .bx-sun,
+body.dark-mode .bx-moon {
   color: var(--navbar-dark-text);
 }
 
-body.dark-mode .bx-user-circle:hover {
+body.dark-mode .bx-user-circle:hover,
+body.dark-mode .bx-sun:hover,
+body.dark-mode .bx-moon:hover {
   color: var(--brand-accent, #44c767);
   background-color: rgba(68, 199, 103, 0.2);
 }
@@ -278,7 +286,9 @@ body.dark-mode .dropdown-item:hover {
     padding: var(--spacing-xs, 0.25rem) var(--spacing-sm, 0.5rem);
   }
 
-  .bx-user-circle {
+  .bx-user-circle,
+  .bx-sun,
+  .bx-moon {
     font-size: 2rem;
     margin-left: var(--spacing-sm, 0.5rem);
   }
