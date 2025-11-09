@@ -8,8 +8,8 @@ function AboutAymen() {
   return (
     <div className="divAymen">
       <Container>
-        <Row className="rowAymen">
-          <Col xs={12} md={6}>
+        <Row>
+          <Col>
             <img className="imagesAymen" src="https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/refs/heads/main/REAL-ESTATE-AWS-SERVICES/seed/pictures/picsAboutUs/picsAymen/image_projetweb.jpg?raw=true"
               alt="Image Aymen" />
             <div className="github-link-container">
@@ -19,17 +19,18 @@ function AboutAymen() {
               </a>
             </div>
           </Col>
-          <Col xs={12} md={6}>
-            <h1 id="titletextAymen">
-              Aymen <br /> Kermezli
-            </h1>
-            <p id="textAymen">
-              Nous développons un site web de vente de maisons.
-              Notre projet permet aux utilisateurs de consulter et explorer
-              différentes propriétés à vendre.  <br />
-              Nous sommes une équipe de trois étudiants.
-
-            </p>
+          <Col xs={8}>
+            <div>
+              <h1 id="titletextAymen">
+                Aymen <br /> Kermezli
+              </h1>
+              <p id="textAymen">
+                Nous développons un site web de vente de maisons.
+                Notre projet permet aux utilisateurs de consulter et explorer
+                différentes propriétés à vendre.  <br />
+                Nous sommes une équipe de trois étudiants.
+              </p>
+            </div>
           </Col>
         </Row>
       </Container>
