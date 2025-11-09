@@ -32,10 +32,27 @@
   z-index: 1;
 }
 
-.divAymen .row {
-  display: flex;
-  align-items: center;
+.divAymen .rowAymen {
+  display: flex !important;
+  flex-wrap: nowrap;
+  align-items: flex-start;
   gap: var(--spacing-xl, 2rem);
+}
+
+.divAymen .rowAymen > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+}
+
+.divAymen .rowAymen > [class*="col-"]:first-child {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.divAymen .rowAymen > [class*="col-"]:last-child {
+  flex: 0 0 50%;
+  max-width: 50%;
 }
 
 /* ============================================
@@ -116,7 +133,7 @@
   background-color: transparent;
   transition: all var(--transition-base, 0.3s ease);
   margin-top: var(--spacing-md, 1rem);
-  margin-left: var(--spacing-lg, 1.5rem);
+  align-self: flex-start;
 }
 
 .github-link-container:hover {
@@ -208,9 +225,15 @@ body.dark-mode .imagesAymen:hover {
     padding: var(--spacing-xl, 2rem) 0;
   }
 
-  .divAymen .row {
-    flex-direction: column;
+  .divAymen .rowAymen {
+    flex-direction: column !important;
     align-items: center;
+  }
+  
+  .divAymen .rowAymen > [class*="col-"] {
+    display: block;
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
   }
 
   #titletextAymen {
@@ -258,9 +281,7 @@ body.dark-mode .imagesAymen:hover {
   }
 
   .github-link-container {
-    margin-left: 0;
-    display: flex;
-    justify-content: center;
+    align-self: center;
   }
 }
 

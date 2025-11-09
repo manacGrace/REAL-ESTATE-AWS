@@ -85,7 +85,7 @@
   background-color: transparent;
   transition: all var(--transition-base, 0.3s ease);
   margin-top: var(--spacing-md, 1rem);
-  margin-left: auto;
+  align-self: flex-start;
 }
 
 .github-link-container:hover {
@@ -230,9 +230,7 @@ body.dark-mode .imagesWill:hover {
   }
 
   .github-link-container {
-    margin-left: 0;
-    display: flex;
-    justify-content: center;
+    align-self: center;
   }
 }
 

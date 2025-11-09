@@ -81,6 +81,7 @@
   background-color: transparent;
   transition: all var(--transition-base, 0.3s ease);
   margin-top: var(--spacing-md, 1rem);
+  align-self: flex-start;
 }
 
 .github-link-container:hover {
@@ -225,8 +226,7 @@ body.dark-mode .imagesManasse:hover {
   }
 
   .github-link-container {
-    display: flex;
-    justify-content: center;
+    align-self: center;
   }
 }
 

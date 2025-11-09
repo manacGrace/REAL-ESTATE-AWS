@@ -19,12 +19,6 @@ function AboutManasse() {
               différentes propriétés à vendre.  <br /> 
               Nous sommes une équipe de trois étudiants.
             </p>
-            <div className="github-link-container">
-              <i className="bx bxl-github"></i>
-              <a href="https://github.com/manacGrace" target="_blank" rel="noopener noreferrer" className="github-username">
-                @manacGrace
-              </a>
-            </div>
           </Col>{/* 
           <Col>
             <img
@@ -38,7 +32,13 @@ function AboutManasse() {
               className="imagesManasse"
               src="https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/refs/heads/main/REAL-ESTATE-AWS-SERVICES/seed/pictures/picsAboutUs/picsManasse/manasse07.jpg?raw=true"
               alt="Image Manasse"
-            />  
+            />
+            <div className="github-link-container">
+              <i className="bx bxl-github"></i>
+              <a href="https://github.com/manacGrace" target="_blank" rel="noopener noreferrer" className="github-username">
+                @manacGrace
+              </a>
+            </div>
           </Col>
         </Row>
       </Container>
