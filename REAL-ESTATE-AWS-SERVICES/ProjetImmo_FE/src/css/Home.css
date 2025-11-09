@@ -191,6 +191,7 @@
   padding: var(--spacing-xxl, 3rem) var(--spacing-md, 1rem);
   background-color: var(--bg-secondary-light, #FFFFFF);
   transition: background-color var(--transition-base, 0.3s ease);
+  border-radius: 25px;
 }
 
 #petitTextTitle {

@@ -38,24 +38,6 @@
   z-index: 1;
 }
 
-.rowManasse {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--spacing-xl, 2rem);
-}
-
-.colImageManasse {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-}
-
-.image-wrapper-manasse {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 100%;
-}
 
 /* ============================================
    TITLE
@@ -90,7 +72,7 @@
    GITHUB LINK
    ============================================ */
 
-.image-wrapper-manasse .github-link-container {
+.github-link-container {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-sm, 0.5rem);
@@ -100,21 +82,21 @@
   background-color: transparent;
   transition: all var(--transition-base, 0.3s ease);
   margin-top: var(--spacing-md, 1rem);
-  align-self: center;
+  margin-left: auto;
 }
 
-.image-wrapper-manasse .github-link-container:hover {
+.github-link-container:hover {
   background-color: rgba(0, 0, 0, 0.05);
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm, 0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
-.image-wrapper-manasse .github-link-container .bx {
+.github-link-container .bx {
   font-size: 1.25rem;
   color: var(--text-primary-light, #000000);
 }
 
-.image-wrapper-manasse .github-username {
+.github-username {
   color: var(--text-primary-light, #000000);
   text-decoration: none;
   font-weight: var(--font-weight-medium, 600);
@@ -123,7 +105,7 @@
   letter-spacing: 0.5px;
 }
 
-.image-wrapper-manasse .github-username:hover {
+.github-username:hover {
   color: var(--text-primary-light, #000000);
   text-decoration: none;
 }
@@ -140,8 +122,6 @@
   box-shadow: var(--shadow-lg, 0 8px 16px rgba(0, 0, 0, 0.15));
   transition: all var(--transition-base, 0.3s ease);
   object-fit: cover;
-  display: block;
-  margin: 0 auto;
 }
 
 .imagesManasse:hover {
@@ -171,23 +151,23 @@ body.dark-mode #textManasse {
   color: var(--text-secondary-dark, rgba(255, 255, 255, 0.9));
 }
 
-body.dark-mode .image-wrapper-manasse .github-link-container {
+body.dark-mode .github-link-container {
   border-color: var(--text-primary-dark, #F3F3F3);
 }
 
-body.dark-mode .image-wrapper-manasse .github-link-container:hover {
+body.dark-mode .github-link-container:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-body.dark-mode .image-wrapper-manasse .github-link-container .bx {
+body.dark-mode .github-link-container .bx {
   color: var(--text-primary-dark, #F3F3F3);
 }
 
-body.dark-mode .image-wrapper-manasse .github-username {
+body.dark-mode .github-username {
   color: var(--text-primary-dark, #F3F3F3);
 }
 
-body.dark-mode .image-wrapper-manasse .github-username:hover {
+body.dark-mode .github-username:hover {
   color: var(--text-primary-dark, #F3F3F3);
 }
 
@@ -208,16 +188,6 @@ body.dark-mode .imagesManasse:hover {
   #sectionManasse {
     min-height: auto;
     padding: var(--spacing-xl, 2rem) 0;
-  }
-
-  .rowManasse {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .colImageManasse {
-    justify-content: center;
-    width: 100%;
   }
 
   #titleTextManasse {
@@ -258,8 +228,10 @@ body.dark-mode .imagesManasse:hover {
     display: block;
   }
 
-  .image-wrapper-manasse .github-link-container {
-    align-self: center;
+  .github-link-container {
+    margin-left: 0;
+    display: flex;
+    justify-content: center;
   }
 }
 
