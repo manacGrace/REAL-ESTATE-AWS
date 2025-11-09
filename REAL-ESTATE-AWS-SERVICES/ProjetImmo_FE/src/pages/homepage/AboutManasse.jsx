@@ -19,6 +19,12 @@ function AboutManasse() {
               différentes propriétés à vendre.  <br /> 
               Nous sommes une équipe de trois étudiants.
             </p>
+            <div className="github-link-container">
+              <i className="bx bxl-github"></i>
+              <a href="https://github.com/manacGrace" target="_blank" rel="noopener noreferrer" className="github-username">
+                @manacGrace
+              </a>
+            </div>
           </Col>{/* 
           <Col>
             <img

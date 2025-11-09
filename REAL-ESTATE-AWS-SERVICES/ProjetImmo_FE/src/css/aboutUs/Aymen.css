@@ -32,6 +32,12 @@
   z-index: 1;
 }
 
+.divAymen .row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl, 2rem);
+}
+
 /* ============================================
    IMAGE STYLING
    ============================================ */
@@ -78,6 +84,7 @@
   color: var(--text-primary-light, #000000);
   line-height: 1.2;
   transition: color var(--transition-base, 0.3s ease);
+  padding-left: var(--spacing-lg, 1.5rem);
 }
 
 /* ============================================
@@ -90,7 +97,51 @@
   line-height: 1.8;
   color: var(--text-secondary-light, #333333);
   margin: 0;
+  margin-bottom: var(--spacing-md, 1rem);
   transition: color var(--transition-base, 0.3s ease);
+  padding-left: var(--spacing-lg, 1.5rem);
+}
+
+/* ============================================
+   GITHUB LINK
+   ============================================ */
+
+.github-link-container {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm, 0.5rem);
+  padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 1rem);
+  border: 2px solid var(--text-primary-light, #000000);
+  border-radius: var(--radius-xxl, 25px);
+  background-color: transparent;
+  transition: all var(--transition-base, 0.3s ease);
+  margin-top: var(--spacing-md, 1rem);
+  margin-left: var(--spacing-lg, 1.5rem);
+}
+
+.github-link-container:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm, 0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.github-link-container .bx {
+  font-size: 1.25rem;
+  color: var(--text-primary-light, #000000);
+}
+
+.github-username {
+  color: var(--text-primary-light, #000000);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium, 600);
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.github-username:hover {
+  color: var(--text-primary-light, #000000);
+  text-decoration: none;
 }
 
 /* ============================================
@@ -119,6 +170,26 @@ body.dark-mode #textAymen {
   color: var(--text-secondary-dark, #CCCCCC);
 }
 
+body.dark-mode .github-link-container {
+  border-color: var(--text-primary-dark, #F3F3F3);
+}
+
+body.dark-mode .github-link-container:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .github-link-container .bx {
+  color: var(--text-primary-dark, #F3F3F3);
+}
+
+body.dark-mode .github-username {
+  color: var(--text-primary-dark, #F3F3F3);
+}
+
+body.dark-mode .github-username:hover {
+  color: var(--text-primary-dark, #F3F3F3);
+}
+
 body.dark-mode .imagesAymen {
   box-shadow: var(--shadow-lg, 0 8px 16px rgba(0, 0, 0, 0.5));
   filter: brightness(0.9);
@@ -137,13 +208,22 @@ body.dark-mode .imagesAymen:hover {
     padding: var(--spacing-xl, 2rem) 0;
   }
 
+  .divAymen .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
   #titletextAymen {
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     margin-bottom: var(--spacing-md, 1rem);
+    padding-left: 0;
+    text-align: center;
   }
 
   #textAymen {
     font-size: clamp(0.95rem, 1.5vw, 1rem);
+    padding-left: 0;
+    text-align: center;
   }
 
   .imagesAymen {
@@ -170,10 +250,17 @@ body.dark-mode .imagesAymen:hover {
   #textAymen {
     font-size: 1rem;
     text-align: center;
+    padding-left: 0;
   }
 
   .imagesAymen {
     margin: 0 auto var(--spacing-lg, 1.5rem);
+  }
+
+  .github-link-container {
+    margin-left: 0;
+    display: flex;
+    justify-content: center;
   }
 }
 

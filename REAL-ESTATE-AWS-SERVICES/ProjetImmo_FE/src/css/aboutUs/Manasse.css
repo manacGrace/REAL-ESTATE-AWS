@@ -63,7 +63,49 @@
   line-height: 1.8;
   color: var(--text-secondary-light, #333333);
   margin: 0;
+  margin-bottom: var(--spacing-md, 1rem);
   transition: color var(--transition-base, 0.3s ease);
+}
+
+/* ============================================
+   GITHUB LINK
+   ============================================ */
+
+.github-link-container {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm, 0.5rem);
+  padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 1rem);
+  border: 2px solid var(--text-primary-light, #000000);
+  border-radius: var(--radius-xxl, 25px);
+  background-color: transparent;
+  transition: all var(--transition-base, 0.3s ease);
+  margin-top: var(--spacing-md, 1rem);
+}
+
+.github-link-container:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm, 0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.github-link-container .bx {
+  font-size: 1.25rem;
+  color: var(--text-primary-light, #000000);
+}
+
+.github-username {
+  color: var(--text-primary-light, #000000);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium, 600);
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.github-username:hover {
+  color: var(--text-primary-light, #000000);
+  text-decoration: none;
 }
 
 /* ============================================
@@ -105,6 +147,26 @@ body.dark-mode #titleTextManasse {
 
 body.dark-mode #textManasse {
   color: var(--text-secondary-dark, rgba(255, 255, 255, 0.9));
+}
+
+body.dark-mode .github-link-container {
+  border-color: var(--text-primary-dark, #F3F3F3);
+}
+
+body.dark-mode .github-link-container:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .github-link-container .bx {
+  color: var(--text-primary-dark, #F3F3F3);
+}
+
+body.dark-mode .github-username {
+  color: var(--text-primary-dark, #F3F3F3);
+}
+
+body.dark-mode .github-username:hover {
+  color: var(--text-primary-dark, #F3F3F3);
 }
 
 body.dark-mode .imagesManasse {
@@ -160,6 +222,11 @@ body.dark-mode .imagesManasse:hover {
     max-width: 100%;
     margin: var(--spacing-lg, 1.5rem) auto 0;
     display: block;
+  }
+
+  .github-link-container {
+    display: flex;
+    justify-content: center;
   }
 }
 

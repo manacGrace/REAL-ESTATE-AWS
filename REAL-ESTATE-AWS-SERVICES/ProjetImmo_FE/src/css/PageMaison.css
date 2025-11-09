@@ -76,7 +76,7 @@
   height: 515px;
   object-fit: cover;
   object-position: -20px;
-  border-radius: var(--radius-lg, 12px);
+  border-radius: var(--radius-xl, 16px);
   box-shadow: var(--shadow-lg, 0 8px 16px rgba(0, 0, 0, 0.15));
   transition: transform var(--transition-base, 0.3s ease);
 }
@@ -101,7 +101,7 @@
   height: 240px;
   overflow: hidden;
   object-fit: cover;
-  border-radius: var(--radius-md, 8px);
+  border-radius: var(--radius-xl, 16px);
   box-shadow: var(--shadow-md, 0 4px 8px rgba(0, 0, 0, 0.1));
   transition: transform var(--transition-base, 0.3s ease);
   cursor: pointer;
@@ -112,7 +112,7 @@
   height: 240px;
   overflow: hidden;
   object-fit: cover;
-  border-radius: var(--radius-md, 8px);
+  border-radius: var(--radius-xl, 16px);
   box-shadow: var(--shadow-md, 0 4px 8px rgba(0, 0, 0, 0.1));
   transition: transform var(--transition-base, 0.3s ease);
   cursor: pointer;
@@ -206,8 +206,7 @@
 
 .Row05,
 .Row06,
-.Row07,
-.Row08 {
+.Row07 {
   margin-bottom: var(--spacing-lg, 1.5rem);
 }
 

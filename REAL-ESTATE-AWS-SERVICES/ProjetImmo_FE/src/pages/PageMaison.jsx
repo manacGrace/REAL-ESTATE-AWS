@@ -159,12 +159,6 @@ function PageMaison() {
             </p>
           </Col>
         </Row>
-
-        <Row className="Row08 RowRowsAllRows">
-          <Col className="ColMargin"></Col>
-          <Col className="ColMargin"></Col>
-          <Col className="ColMargin"></Col>
-        </Row>
       </Container>
     </div>
   );

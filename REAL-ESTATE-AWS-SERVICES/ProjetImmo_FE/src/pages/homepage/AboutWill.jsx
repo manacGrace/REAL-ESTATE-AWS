@@ -23,6 +23,12 @@ function AboutWill() {
               différentes propriétés à vendre.  <br /> 
               Nous sommes une équipe de trois étudiants.
               </p>
+              <div className="github-link-container">
+                <i className="bx bxl-github"></i>
+                <a href="https://github.com/NWilliRex" target="_blank" rel="noopener noreferrer" className="github-username">
+                  @NWilliRex
+                </a>
+              </div>
             </div>
           </Col>
         </Row>

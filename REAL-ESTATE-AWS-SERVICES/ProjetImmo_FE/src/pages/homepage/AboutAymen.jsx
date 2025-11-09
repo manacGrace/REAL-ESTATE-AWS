@@ -9,11 +9,11 @@ function AboutAymen() {
     <div className="divAymen">
       <Container>
         <Row>
-          <Col xs={10}>
+          <Col xs={12} md={6}>
             <img className="imagesAymen" src="https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/refs/heads/main/REAL-ESTATE-AWS-SERVICES/seed/pictures/picsAboutUs/picsAymen/image_projetweb.jpg?raw=true"
               alt="Image Aymen" />
           </Col>
-          <Col xs={10}>
+          <Col xs={12} md={6}>
             <h1 id="titletextAymen">
               Aymen <br /> Kermezli
             </h1>
@@ -24,6 +24,12 @@ function AboutAymen() {
               Nous sommes une équipe de trois étudiants.
 
             </p>
+            <div className="github-link-container">
+              <i className="bx bxl-github"></i>
+              <a href="https://github.com/kerAymen" target="_blank" rel="noopener noreferrer" className="github-username">
+                @kerAymen
+              </a>
+            </div>
           </Col>
         </Row>
       </Container>
