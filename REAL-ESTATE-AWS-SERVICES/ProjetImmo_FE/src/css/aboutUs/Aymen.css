@@ -12,6 +12,8 @@
   transition: all var(--transition-base, 0.3s ease);
   position: relative;
   overflow: hidden;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 
 .divAymen::before {
