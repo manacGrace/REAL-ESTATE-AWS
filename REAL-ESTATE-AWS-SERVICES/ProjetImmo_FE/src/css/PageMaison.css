@@ -1,5 +1,24 @@
+/* ============================================
+   HOUSE DETAIL PAGE STYLES
+   ============================================ */
+
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
+
 .divPageMaison {
-  margin-top: 100px;
+  margin-top: clamp(80px, 10vh, 100px);
+  padding: var(--spacing-xl, 2rem) 0;
+  min-height: calc(100vh - 100px);
+}
+
+/* ============================================
+   HEADER SECTION (Address & Price)
+   ============================================ */
+
+.Row01 {
+  margin-bottom: var(--spacing-xl, 2rem);
+  align-items: center;
 }
 
 .ColAddressMaison {
@@ -7,103 +26,380 @@
 }
 
 #maisonVendre {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: var(--font-family-heading, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: var(--font-weight-extra-bold, 800);
+  color: var(--text-primary-light, #000000);
+  margin-bottom: var(--spacing-sm, 0.5rem);
+  transition: color var(--transition-base, 0.3s ease);
 }
 
 #address {
-  font-weight: 500;
-  margin-top: 10px;
+  font-weight: var(--font-weight-medium, 600);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  margin-top: var(--spacing-sm, 0.5rem);
+  color: var(--text-secondary-light, #333333);
+  transition: color var(--transition-base, 0.3s ease);
 }
 
 .ColPriceMaison {
   text-align: right;
-  font-weight: 600;
-  font-size: 40px;
-  margin-top: 20px;
+  font-weight: var(--font-weight-bold, 700);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin-top: var(--spacing-lg, 1.5rem);
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 10px;
+  gap: var(--spacing-md, 1rem);
+  color: var(--brand-primary, #198754);
+  transition: color var(--transition-base, 0.3s ease);
+}
+
+/* ============================================
+   IMAGE SECTION
+   ============================================ */
+
+.Row02 {
+  margin-bottom: var(--spacing-xl, 2rem);
+  gap: var(--spacing-md, 1rem);
 }
 
 .ColImageMaison {
-  transition: 0.3s;
+  transition: transform var(--transition-base, 0.3s ease);
 }
 
 .pageMaisonImagePrincipalMaison {
-  width: 880px;
-  height: 515px;
+  width: 100%;
+  max-width: 880px;
+  height: clamp(300px, 40vh, 515px);
   object-fit: cover;
-  object-position: -20px;
+  object-position: center;
+  border-radius: var(--radius-lg, 12px);
+  box-shadow: var(--shadow-lg, 0 8px 16px rgba(0, 0, 0, 0.15));
+  transition: transform var(--transition-base, 0.3s ease);
 }
 
-.pageMaisonImageSecondaireMaison {
+.pageMaisonImagePrincipalMaison:hover {
+  transform: scale(1.02);
+}
+
+.Col2ImageMaison {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md, 1rem);
+}
+
+.RowImageMaisonSecondaire {
+  margin: 0;
+}
+
+.pageMaisonImageSecondaireMaison,
+.pageMaisonImageSecondaireMaison2 {
   width: 100%;
-  height: 240px;
+  height: clamp(150px, 20vh, 240px);
   overflow: hidden;
   object-fit: cover;
+  object-position: center;
+  border-radius: var(--radius-md, 8px);
+  box-shadow: var(--shadow-md, 0 4px 8px rgba(0, 0, 0, 0.1));
+  transition: transform var(--transition-base, 0.3s ease);
+  cursor: pointer;
+}
+
+.pageMaisonImageSecondaireMaison:hover,
+.pageMaisonImageSecondaireMaison2:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-lg, 0 8px 16px rgba(0, 0, 0, 0.15));
 }
 
 .pageMaisonImageSecondaireMaison2 {
-  width: 100%;
-  height: 240px;
-  margin-top: 20px;
-  overflow: hidden;
-  object-fit: cover;
+  margin-top: 0;
+}
+
+/* ============================================
+   MAP SECTION
+   ============================================ */
+
+.Row03 {
+  margin-bottom: var(--spacing-xl, 2rem);
 }
 
 .ColMap {
-  height: 80px;
-}
-
-.ColMap div {
-  font-size: 20px;
-  padding: 7px;
-  border: 1px #000000 solid;
-  border-radius: 5px;
+  height: auto;
+  min-height: 60px;
 }
 
 #mapIconDiv {
-  margin-top: 20px;
+  margin-top: var(--spacing-lg, 1.5rem);
   text-align: left;
   display: flex;
   justify-content: space-between;
-  font-weight: 600;
+  align-items: center;
+  font-weight: var(--font-weight-bold, 700);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  padding: var(--spacing-md, 1rem);
+  border: 2px solid var(--border-light, #E0E0E0);
+  border-radius: var(--radius-md, 8px);
+  background-color: var(--bg-secondary-light, #FFFFFF);
+  cursor: pointer;
+  transition: all var(--transition-base, 0.3s ease);
+}
+
+#mapIconDiv:hover {
+  border-color: var(--brand-primary, #198754);
+  background-color: rgba(25, 135, 84, 0.05);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md, 0 4px 8px rgba(0, 0, 0, 0.1));
 }
 
 .bx-map-alt {
   margin-right: 0;
   text-align: right;
-  font-size: 30px;
-  color: #5d947a;
-  margin-left: 10px;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--brand-primary, #5d947a);
+  margin-left: var(--spacing-md, 1rem);
+  transition: transform var(--transition-base, 0.3s ease);
+}
+
+#mapIconDiv:hover .bx-map-alt {
+  transform: scale(1.1);
+}
+
+/* ============================================
+   CHARACTERISTICS SECTION
+   ============================================ */
+
+.Row04 {
+  margin-bottom: var(--spacing-lg, 1.5rem);
 }
 
 .ColCaracteristiques {
-  margin-top: 10px;
+  margin-top: var(--spacing-md, 1rem);
 }
 
 #caracteristiquesDiv {
   text-align: left;
-  margin-left: 5px;
-  font-size: 30px;
-  color: rgb(2, 108, 37)
+  margin-left: var(--spacing-xs, 0.25rem);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: rgb(2, 108, 37);
+  font-weight: var(--font-weight-extra-bold, 800);
+  transition: color var(--transition-base, 0.3s ease);
 }
-.RowRowsAllRows{
-    
-    margin-top: 40px;
-    text-align: left;
+
+/* ============================================
+   CHARACTERISTICS ROWS
+   ============================================ */
+
+.RowRowsAllRows {
+  margin-top: var(--spacing-xl, 2rem);
+  text-align: left;
+  gap: var(--spacing-lg, 1.5rem);
+}
+
+.Row05,
+.Row06,
+.Row07,
+.Row08 {
+  margin-bottom: var(--spacing-lg, 1.5rem);
 }
 
 .ColMargin {
-  margin-left:7px;
+  margin-left: var(--spacing-sm, 0.5rem);
+  padding: var(--spacing-md, 1rem);
+  background-color: var(--bg-secondary-light, #FFFFFF);
+  border-radius: var(--radius-md, 8px);
+  box-shadow: var(--shadow-sm, 0 2px 4px rgba(0, 0, 0, 0.1));
+  transition: all var(--transition-base, 0.3s ease);
 }
 
-.ColMargin h1{
-    font-size: 20px;
-    font-weight: 800;
+.ColMargin:hover {
+  box-shadow: var(--shadow-md, 0 4px 8px rgba(0, 0, 0, 0.15));
+  transform: translateY(-2px);
 }
 
-.ColMargin p{
-    font-weight: 500;
+.ColMargin h1 {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: var(--font-weight-extra-bold, 800);
+  margin-bottom: var(--spacing-sm, 0.5rem);
+  color: var(--text-primary-light, #000000);
+  transition: color var(--transition-base, 0.3s ease);
+}
+
+.ColMargin p {
+  font-weight: var(--font-weight-normal, 400);
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  color: var(--text-secondary-light, #333333);
+  margin: 0;
+  line-height: 1.6;
+  transition: color var(--transition-base, 0.3s ease);
+}
+
+.ColMargin i {
+  margin-right: var(--spacing-xs, 0.25rem);
+  font-size: 1.2em;
+  vertical-align: middle;
+  color: var(--brand-primary, #198754);
+}
+
+/* ============================================
+   HEART ICON
+   ============================================ */
+
+.bx-heart {
+  cursor: pointer;
+  transition: all var(--transition-base, 0.3s ease);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.bx-heart:hover {
+  transform: scale(1.15);
+}
+
+.bx-heart:active {
+  transform: scale(0.95);
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+
+body.dark-mode #maisonVendre {
+  color: var(--text-primary-dark, #F3F3F3);
+}
+
+body.dark-mode #address {
+  color: var(--text-secondary-dark, #CCCCCC);
+}
+
+body.dark-mode .ColPriceMaison {
+  color: var(--brand-accent, #44c767);
+}
+
+body.dark-mode #mapIconDiv {
+  background-color: var(--bg-secondary-dark, #1E1E1E);
+  border-color: var(--border-dark, #333333);
+  color: var(--text-primary-dark, #F3F3F3);
+}
+
+body.dark-mode #mapIconDiv:hover {
+  background-color: rgba(68, 199, 103, 0.1);
+  border-color: var(--brand-accent, #44c767);
+}
+
+body.dark-mode .bx-map-alt {
+  color: var(--brand-accent, #44c767);
+}
+
+body.dark-mode #caracteristiquesDiv {
+  color: var(--brand-accent, #44c767);
+}
+
+body.dark-mode .ColMargin {
+  background-color: var(--bg-secondary-dark, #1E1E1E);
+  box-shadow: var(--shadow-md, 0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+body.dark-mode .ColMargin:hover {
+  box-shadow: var(--shadow-lg, 0 8px 16px rgba(0, 0, 0, 0.5));
+}
+
+body.dark-mode .ColMargin h1 {
+  color: var(--text-primary-dark, #F3F3F3);
+}
+
+body.dark-mode .ColMargin p {
+  color: var(--text-secondary-dark, #CCCCCC);
+}
+
+body.dark-mode .ColMargin i {
+  color: var(--brand-accent, #44c767);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 992px) {
+  .Row02 {
+    flex-direction: column;
+  }
+
+  .Col2ImageMaison {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: var(--spacing-sm, 0.5rem);
+  }
+
+  .pageMaisonImageSecondaireMaison,
+  .pageMaisonImageSecondaireMaison2 {
+    min-width: 200px;
+    flex-shrink: 0;
+  }
+
+  .RowRowsAllRows {
+    flex-direction: column;
+  }
+
+  .ColMargin {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .divPageMaison {
+    padding: var(--spacing-md, 1rem) 0;
+  }
+
+  .Row01 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-md, 1rem);
+  }
+
+  .ColAddressMaison,
+  .ColPriceMaison {
+    text-align: left;
+    width: 100%;
+  }
+
+  .ColPriceMaison {
+    justify-content: flex-start;
+  }
+
+  .pageMaisonImagePrincipalMaison {
+    height: clamp(250px, 35vh, 400px);
+  }
+
+  .Col2ImageMaison {
+    flex-direction: column;
+  }
+
+  .pageMaisonImageSecondaireMaison,
+  .pageMaisonImageSecondaireMaison2 {
+    min-width: 100%;
+    height: clamp(120px, 15vh, 180px);
+  }
+}
+
+@media (max-width: 480px) {
+  #maisonVendre {
+    font-size: 1.5rem;
+  }
+
+  #address {
+    font-size: 0.95rem;
+  }
+
+  .ColPriceMaison {
+    font-size: 1.5rem;
+  }
+
+  .pageMaisonImagePrincipalMaison {
+    height: 250px;
+  }
+
+  #caracteristiquesDiv {
+    font-size: 1.25rem;
+  }
 }

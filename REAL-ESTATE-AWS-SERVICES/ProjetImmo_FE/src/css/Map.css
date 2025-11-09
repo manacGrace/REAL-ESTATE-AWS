@@ -1,76 +1,232 @@
+/* ============================================
+   MAP PAGE STYLES
+   ============================================ */
+
 :root {
-    --map-container-light-bg: white;
-    --map-text-light: black;
-  
-    --map-container-dark-bg: #121212;
-    --map-text-dark: white;
-  }
-  
-
-  #textMap{
-    text-align: center;
-    font-weight: 700;
-    font-size: 20px;
-    border-bottom: #000000 1px;
-  }
-
-  .linkToMaison {
-    text-decoration: none;
-    border: none;
-  }
-
- #map{
-  height: 70vh;
-  width: 1700px;
-  margin-left: auto;
-  margin-right: auto;
- }
-
-#prixMaison{
-  margin-top: 5px;
-  font-size: 18px;
-  font-weight: 700;
+  --map-container-light-bg: white;
+  --map-text-light: black;
+  --map-container-dark-bg: #121212;
+  --map-text-dark: white;
 }
 
+/* ============================================
+   MAP TITLE
+   ============================================ */
+
+#textMap {
+  text-align: center;
+  font-weight: var(--font-weight-bold, 700);
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  margin: var(--spacing-lg, 1.5rem) 0;
+  padding-bottom: var(--spacing-md, 1rem);
+  border-bottom: 2px solid var(--border-light, #E0E0E0);
+  color: var(--map-text-light);
+  transition: color var(--transition-base, 0.3s ease);
+}
+
+/* ============================================
+   MAP CONTAINER
+   ============================================ */
+
+.galerieMessageDic {
+  margin-top: clamp(80px, 10vh, 100px);
+  text-align: left;
+  padding: 0 var(--spacing-md, 1rem);
+}
+
+.galerieMessageDic h1 {
+  font-family: var(--font-family-heading, Arial, sans-serif);
+  color: var(--map-text-light);
+  transition: color var(--transition-base, 0.3s ease);
+}
+
+#map {
+  height: 70vh;
+  min-height: 400px;
+  width: 100%;
+  max-width: 1700px;
+  margin: var(--spacing-lg, 1.5rem) auto;
+  border-radius: var(--radius-lg, 12px);
+  box-shadow: var(--shadow-lg, 0 8px 16px rgba(0, 0, 0, 0.15));
+  overflow: hidden;
+  transition: box-shadow var(--transition-base, 0.3s ease);
+}
+
+#map:hover {
+  box-shadow: var(--shadow-xl, 0 12px 24px rgba(0, 0, 0, 0.2));
+}
+
+/* ============================================
+   MAPBOX POPUP CONTENT
+   ============================================ */
+
+.linkToMaison {
+  text-decoration: none;
+  border: none;
+  color: inherit;
+  display: block;
+}
+
+.mapbox-popup-content,
+.mapboxgl-popup-content {
+  background-color: white;
+  color: black;
+  border-radius: var(--radius-md, 8px);
+  padding: var(--spacing-md, 1rem);
+  min-width: 200px;
+  max-width: 300px;
+  box-shadow: var(--shadow-lg, 0 8px 16px rgba(0, 0, 0, 0.15));
+  transition: all var(--transition-base, 0.3s ease);
+}
+
+.mapbox-popup-content:hover,
+.mapboxgl-popup-content:hover {
+  box-shadow: var(--shadow-xl, 0 12px 24px rgba(0, 0, 0, 0.2));
+}
+
+.mapbox-popup-content img,
+.mapboxgl-popup-content img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm, 4px);
+  margin-bottom: var(--spacing-sm, 0.5rem);
+  object-fit: cover;
+  max-height: 150px;
+}
+
+#prixMaison {
+  margin-top: var(--spacing-sm, 0.5rem);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--brand-primary, #198754);
+}
+
+.mapbox-popup-content p,
+.mapboxgl-popup-content p {
+  margin: var(--spacing-xs, 0.25rem) 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-secondary-light, #333333);
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+
+body.dark-mode #map {
+  background-color: var(--map-container-dark-bg);
+  box-shadow: var(--shadow-lg, 0 8px 16px rgba(0, 0, 0, 0.5));
+}
+
+body.dark-mode .galerieMessageDic h1 {
+  color: var(--map-text-dark);
+}
+
+body.dark-mode #textMap {
+  color: var(--map-text-dark);
+  border-bottom-color: var(--border-dark, #333333);
+}
+
+body.dark-mode .mapbox-popup-content,
+body.dark-mode .mapboxgl-popup-content {
+  background-color: #1c1c1c;
+  color: white;
+  box-shadow: var(--shadow-lg, 0 8px 16px rgba(0, 0, 0, 0.5));
+}
+
+body.dark-mode .mapbox-popup-content p,
+body.dark-mode .mapboxgl-popup-content p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+body.dark-mode #prixMaison {
+  color: var(--brand-accent, #44c767);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1200px) {
+  #map {
+    max-width: 100%;
+    margin: var(--spacing-md, 1rem) auto;
+  }
+}
+
+@media (max-width: 768px) {
   .galerieMessageDic {
-    margin-top: 100px;
-    text-align: left;
-  }
-  
-  .galerieMessageDic h1 {
-    font-family: Arial, sans-serif;
-    color: var(--map-text-light);
-  }
-  
-  /* Dark Mode */
-  body.dark-mode #map {
-    background-color: var(--map-container-dark-bg);
-  }
-  
-  body.dark-mode .galerieMessageDic h1 {
-    color: var(--map-text-dark);
+    margin-top: clamp(60px, 8vh, 80px);
+    padding: 0 var(--spacing-sm, 0.5rem);
   }
 
-  .mapbox-popup-content {
-    background-color: white;
-    color: black;
-    border-radius: 8px;
-    padding: 10px;
-  }
-  
-  body.dark-mode .mapbox-popup-content {
-    background-color: #1c1c1c;
-    color: white;
+  #textMap {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+    margin: var(--spacing-md, 1rem) 0;
   }
 
+  #map {
+    height: 60vh;
+    min-height: 350px;
+    margin: var(--spacing-md, 1rem) auto;
+    border-radius: var(--radius-md, 8px);
+  }
+
+  .mapbox-popup-content,
   .mapboxgl-popup-content {
-    background-color: white;
-    color: black;
-    border-radius: 8px;
-    padding: 10px;
+    min-width: 180px;
+    max-width: 250px;
+    padding: var(--spacing-sm, 0.5rem);
   }
-  
-  body.dark-mode .mapboxgl-popup-content {
-    background-color: #1c1c1c;
-    color: white;
+
+  .mapbox-popup-content img,
+  .mapboxgl-popup-content img {
+    max-height: 120px;
   }
+
+  #prixMaison {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #map {
+    height: 50vh;
+    min-height: 300px;
+    border-radius: var(--radius-sm, 4px);
+  }
+
+  .mapbox-popup-content,
+  .mapboxgl-popup-content {
+    min-width: 150px;
+    max-width: 200px;
+    font-size: 0.85rem;
+  }
+
+  .mapbox-popup-content img,
+  .mapboxgl-popup-content img {
+    max-height: 100px;
+  }
+}
+
+/* ============================================
+   MAP CONTROLS STYLING
+   ============================================ */
+
+.mapboxgl-ctrl-group {
+  border-radius: var(--radius-md, 8px);
+  box-shadow: var(--shadow-md, 0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.mapboxgl-ctrl button {
+  border-radius: var(--radius-sm, 4px);
+  transition: background-color var(--transition-fast, 0.15s ease);
+}
+
+.mapboxgl-ctrl button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .mapboxgl-ctrl button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}

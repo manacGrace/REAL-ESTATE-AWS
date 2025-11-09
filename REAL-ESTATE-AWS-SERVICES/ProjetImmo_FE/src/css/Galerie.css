@@ -1,126 +1,255 @@
+/* ============================================
+   GALERIE PAGE STYLES
+   ============================================ */
+
 :root {
-  /* clair */
+  /* Galerie specific colors */
   --bg-galerie-light: #ffffff;
   --text-light: #000000;
   --card-bg-light: #dfdddd;
   --card-hover-light: #5d947a;
-
-  /* sombre */
   --bg-galerie-dark: #121212;
   --text-dark: #ffffff;
   --card-bg-dark: #1e1e1e;
   --card-hover-dark: rgba(0, 167, 56, 0.3);
   --heart-color-dark: #44c767;
-
-
   --border-radius: 12px;
   --transition: 0.3s ease;
   --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   --card-shadow-hover: 0 6px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* ==============================
-   TITRE
-============================== */
+/* ============================================
+   TITLE SECTION
+   ============================================ */
+
+.galerieMessageDic {
+  margin-bottom: var(--spacing-xl, 2rem);
+}
+
 .galerieMessageDic h1 {
-  font-family: Arial, sans-serif;
-  margin: 100px auto 40px;
+  font-family: var(--font-family-heading, Arial, sans-serif);
+  margin: clamp(60px, 8vh, 100px) auto clamp(20px, 3vh, 40px);
   color: var(--text-light);
   text-align: center;
-  font-size: 2.2rem;
+  font-size: clamp(1.75rem, 5vw, 2.2rem);
   line-height: 1.3;
+  font-weight: var(--font-weight-extra-bold, 800);
   transition: var(--transition);
+  letter-spacing: -0.02em;
 }
 
-/* ==============================
-   LAYOUT GALERIE
-============================== */
+/* ============================================
+   LAYOUT & CONTAINER
+   ============================================ */
+
+.galerieMainDiv {
+  min-height: calc(100vh - 100px);
+  padding: var(--spacing-md, 1rem) 0;
+}
+
 .filtreZone {
-  margin-bottom: 2rem;
+  margin-bottom: var(--spacing-xl, 2rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.galerieCardsDiv, .galerieCardsDivToCenter {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  padding: 0 5vw 3rem;
-  margin-top: 2rem;
+.galerieCardsDiv,
+.galerieCardsDivToCenter {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-xl, 2rem);
+  padding: 0 clamp(1rem, 5vw, 5rem) var(--spacing-xxl, 3rem);
+  margin-top: var(--spacing-xl, 2rem);
   transition: background-color var(--transition), color var(--transition);
 }
 
-.linkToMaison {
-  text-decoration: none;
+.divToCenter {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
-/* ==============================
-   CARTE MAISON
-============================== */
+/* ============================================
+   LINKS
+   ============================================ */
+
+.linkToMaison {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+  transition: transform var(--transition);
+}
+
+.linkToMaison:hover {
+  text-decoration: none;
+  color: inherit;
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   HOUSE CARDS
+   ============================================ */
+
 .generatedCards {
   width: 100%;
-  max-height: fit-content;
-  padding: 20px;
+  max-width: 100%;
+  height: 100%;
+  padding: var(--spacing-md, 1rem);
   border-radius: var(--border-radius);
   background-color: var(--card-bg-light);
   box-shadow: var(--card-shadow);
-  transition: background-color var(--transition), box-shadow var(--transition);
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+  border: none;
+  overflow: hidden;
 }
 
 .generatedCards.card:hover {
   background-color: var(--card-hover-light);
   box-shadow: var(--card-shadow-hover);
+  transform: translateY(-4px);
 }
 
 .card-img-top {
   width: 100%;
-  height: 200px;
-  border-radius: 8px;
+  height: 220px;
+  border-radius: var(--radius-md, 8px);
   object-fit: cover;
-  margin-bottom: 15px;
- 
+  margin-bottom: var(--spacing-md, 1rem);
+  transition: transform var(--transition);
 }
 
-/* ==============================
-   TEXTES CARTE
-============================== */
-  .listGoupItemGalerie {
+.generatedCards:hover .card-img-top {
+  transform: scale(1.02);
+}
+
+/* ============================================
+   CARD CONTENT
+   ============================================ */
+
+.listGoupItemGalerie {
   background-color: transparent;
   color: rgba(0, 0, 0, 0.85);
-  border-bottom: 1px solid ;
-  font-size: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: clamp(1rem, 2vw, 1.25rem);
   text-align: left;
-  font-weight: 1rem;
+  font-weight: var(--font-weight-bold, 700);
   display: flex;
   align-items: center;
-  padding: 8px 0;
+  padding: var(--spacing-sm, 0.5rem) 0;
   justify-content: space-between;
+  gap: var(--spacing-sm, 0.5rem);
 }
 
-.textRegionEtchambres{
+.textRegionEtchambres {
   background-color: transparent;
   color: rgba(0, 0, 0, 0.85);
-  border-bottom: 1px solid ;
-  font-size: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
   text-align: left;
-  font-weight: 1rem;
-  padding: 8px 0;
-  margin-top: 5px;
+  font-weight: var(--font-weight-normal, 400);
+  padding: var(--spacing-sm, 0.5rem) 0;
+  margin-top: var(--spacing-xs, 0.25rem);
+  line-height: 1.5;
 }
 
+.textRegionEtchambres i {
+  margin-right: var(--spacing-xs, 0.25rem);
+  font-size: 1.1em;
+  vertical-align: middle;
+}
+
+/* ============================================
+   HEART ICON
+   ============================================ */
+
 .bx-heart {
-  color: #44c767;
+  color: var(--brand-accent, #44c767);
   font-weight: 900;
-  transition: var(--transition);
-  font-size: 1.2rem; 
+  transition: all var(--transition);
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
 .bx-heart:hover {
-  color: black;
+  color: var(--brand-secondary, #0e4a2e);
+  transform: scale(1.15);
 }
 
-/* ==============================
-   MODE SOMBRE
-============================== */
+.bx-heart:active {
+  transform: scale(0.95);
+}
+
+/* ============================================
+   DROPDOWN FILTER
+   ============================================ */
+
+#dropdown-filter-row {
+  display: flex;
+  justify-content: center;
+  margin: var(--spacing-lg, 1.5rem) 0;
+  padding: 0 var(--spacing-md, 1rem);
+}
+
+.dropdown-filter {
+  z-index: var(--z-index-dropdown, 1000);
+}
+
+.dropdown-menu {
+  background-color: var(--bg-galerie-light);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  padding: var(--spacing-sm, 0.5rem);
+  min-width: 250px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.dropdown-item {
+  color: var(--text-light);
+  padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 1rem);
+  font-size: 0.95rem;
+  transition: background-color var(--transition);
+  border-radius: var(--radius-sm, 4px);
+  margin: var(--spacing-xs, 0.25rem) 0;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: var(--card-hover-light);
+  color: var(--text-light);
+}
+
+.dropdown-item label {
+  display: block;
+  margin-bottom: var(--spacing-xs, 0.25rem);
+  font-weight: var(--font-weight-medium, 600);
+}
+
+.dropdown-item input[type="number"] {
+  width: 100%;
+  padding: var(--spacing-xs, 0.25rem) var(--spacing-sm, 0.5rem);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-sm, 4px);
+  font-size: 0.9rem;
+}
+
+.dropdown-divider {
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  margin: var(--spacing-sm, 0.5rem) 0;
+  opacity: 0.5;
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+
 body.dark-mode {
   --bg-galerie-light: var(--bg-galerie-dark);
   --text-light: rgba(255, 255, 255, 0.85);
@@ -132,7 +261,11 @@ body.dark-mode .galerieMessageDic h1,
 body.dark-mode .listGoupItemGalerie,
 body.dark-mode .textRegionEtchambres {
   color: var(--text-dark);
-  border-color: #444;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .textRegionEtchambres {
+  color: rgba(255, 255, 255, 0.75);
 }
 
 body.dark-mode .bx-heart {
@@ -143,28 +276,9 @@ body.dark-mode .bx-heart:hover {
   color: var(--bg-galerie-light);
 }
 
-/* ==============================
-   DROPDOWN
-============================== */
-.dropdown-menu {
-  background-color: var(--bg-galerie-light);
-  border: 1px solid #ccc;
-  border-radius: var(--border-radius);
-}
-
-.dropdown-item {
-  color: var(--text-light);
-  padding: 10px 15px;
-  font-size: 1rem;
-  transition: background-color var(--transition);
-}
-
-.dropdown-item:hover {
-  background-color: var(--card-hover-light);
-}
-
 body.dark-mode .dropdown-menu {
-  border-color: #444;
+  background-color: var(--card-bg-dark);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 body.dark-mode .dropdown-item {
@@ -173,9 +287,61 @@ body.dark-mode .dropdown-item {
 
 body.dark-mode .dropdown-item:hover {
   background-color: var(--card-hover-dark);
+  color: var(--text-dark);
 }
 
-.dropdown-divider {
-  border-top: 1px solid #888;
-  margin: 4px 0;
+body.dark-mode .dropdown-item input[type="number"] {
+  background-color: var(--bg-galerie-dark);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-dark);
+}
+
+body.dark-mode .dropdown-divider {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 992px) {
+  .galerieCardsDiv,
+  .galerieCardsDivToCenter {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: var(--spacing-lg, 1.5rem);
+    padding: 0 var(--spacing-md, 1rem) var(--spacing-xl, 2rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .galerieCardsDiv,
+  .galerieCardsDivToCenter {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md, 1rem);
+    padding: 0 var(--spacing-sm, 0.5rem) var(--spacing-lg, 1.5rem);
+  }
+
+  .generatedCards {
+    padding: var(--spacing-sm, 0.5rem);
+  }
+
+  .card-img-top {
+    height: 200px;
+  }
+
+  .dropdown-menu {
+    min-width: 200px;
+    max-width: 90vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .galerieMessageDic h1 {
+    font-size: clamp(1.5rem, 8vw, 2rem);
+    margin: var(--spacing-lg, 1.5rem) auto var(--spacing-md, 1rem);
+  }
+
+  .card-img-top {
+    height: 180px;
+  }
 }

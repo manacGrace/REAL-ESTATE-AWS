@@ -1,49 +1,184 @@
+/* ============================================
+   MANASSE ABOUT SECTION STYLES
+   ============================================ */
+
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
+
 .divManasse {
-  transition: 0.3s;
+  transition: all var(--transition-base, 0.3s ease);
 }
 
 #sectionManasse {
   background-color: #5d947a;
-  background-image: linear-gradient(white, #5d947a);
-  padding-top: 40px;
-  padding-bottom: 40px;
+  background-image: linear-gradient(180deg, white 0%, #5d947a 100%);
+  padding-top: clamp(2rem, 5vh, 2.5rem);
+  padding-bottom: clamp(2rem, 5vh, 2.5rem);
   border: none;
-  height: 600px;
-  
+  min-height: 600px;
+  transition: all var(--transition-base, 0.3s ease);
+  position: relative;
+  overflow: hidden;
 }
 
-#titleTextManasse {
-  color: rgb(0, 0, 0);
-  font-size: 60px;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-weight: 800;
-  text-align: left;
- 
+#sectionManasse::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(93, 148, 122, 0.1) 100%);
+  z-index: 0;
 }
+
+#sectionManasse > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   TITLE
+   ============================================ */
+
+#titleTextManasse {
+  color: var(--text-primary-light, rgb(0, 0, 0));
+  font-size: clamp(2rem, 5vw, 3.75rem);
+  font-family: var(--font-family-heading, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif);
+  font-weight: var(--font-weight-extra-bold, 800);
+  text-align: left;
+  margin-bottom: var(--spacing-lg, 1.5rem);
+  line-height: 1.2;
+  transition: color var(--transition-base, 0.3s ease);
+}
+
+/* ============================================
+   TEXT CONTENT
+   ============================================ */
 
 #textManasse {
   text-align: left;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.8;
+  color: var(--text-secondary-light, #333333);
+  margin: 0;
+  transition: color var(--transition-base, 0.3s ease);
 }
 
+/* ============================================
+   IMAGE STYLING
+   ============================================ */
+
 .imagesManasse {
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   height: auto;
+  border-radius: var(--radius-lg, 12px);
+  box-shadow: var(--shadow-lg, 0 8px 16px rgba(0, 0, 0, 0.15));
+  transition: all var(--transition-base, 0.3s ease);
+  object-fit: cover;
 }
+
+.imagesManasse:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-xl, 0 12px 24px rgba(0, 0, 0, 0.2));
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
 
 body.dark-mode #sectionManasse {
   background-color: #1c1c1c;
-  background-image: linear-gradient(#1c1c1c, #32a36f);
-  transition: 0.3s;
+  background-image: linear-gradient(180deg, #1c1c1c 0%, #32a36f 100%);
+  transition: all var(--transition-base, 0.3s ease);
+}
+
+body.dark-mode #sectionManasse::before {
+  background: linear-gradient(180deg, rgba(28, 28, 28, 0.1) 0%, rgba(50, 163, 111, 0.1) 100%);
 }
 
 body.dark-mode #titleTextManasse {
-  color: white;
+  color: var(--text-primary-dark, white);
 }
 
 body.dark-mode #textManasse {
-  color: white;
+  color: var(--text-secondary-dark, rgba(255, 255, 255, 0.9));
 }
 
 body.dark-mode .imagesManasse {
-  filter: brightness(0.7);
+  filter: brightness(0.85);
+  box-shadow: var(--shadow-lg, 0 8px 16px rgba(0, 0, 0, 0.5));
+}
+
+body.dark-mode .imagesManasse:hover {
+  filter: brightness(0.95);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 992px) {
+  #sectionManasse {
+    min-height: auto;
+    padding: var(--spacing-xl, 2rem) 0;
+  }
+
+  #titleTextManasse {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: var(--spacing-md, 1rem);
+  }
+
+  #textManasse {
+    font-size: clamp(0.95rem, 1.5vw, 1rem);
+  }
+
+  .imagesManasse {
+    max-width: 100%;
+    margin-top: var(--spacing-lg, 1.5rem);
+  }
+}
+
+@media (max-width: 768px) {
+  #sectionManasse {
+    padding: var(--spacing-lg, 1.5rem) 0;
+  }
+
+  #titleTextManasse {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    text-align: center;
+  }
+
+  #textManasse {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .imagesManasse {
+    max-width: 100%;
+    margin: var(--spacing-lg, 1.5rem) auto 0;
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  #sectionManasse {
+    padding: var(--spacing-md, 1rem) 0;
+    min-height: auto;
+  }
+
+  #titleTextManasse {
+    font-size: 1.5rem;
+  }
+
+  #textManasse {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .imagesManasse {
+    max-width: 100%;
+  }
 }

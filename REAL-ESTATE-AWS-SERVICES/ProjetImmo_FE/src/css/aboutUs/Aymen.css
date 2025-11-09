@@ -1,30 +1,197 @@
+/* ============================================
+   AYMEN ABOUT SECTION STYLES
+   ============================================ */
+
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
+
 .divAymen {
-  margin-top: 50px;
-  padding: 50px 0;
-  background: linear-gradient(#d1e7dd, #a5d6b2);
-  border-top: 3px solid black;
+  margin-top: clamp(30px, 5vh, 50px);
+  padding: clamp(2rem, 5vh, 3rem) 0;
+  background: linear-gradient(135deg, #d1e7dd 0%, #a5d6b2 100%);
+  border-top: 3px solid var(--text-primary-light, #000000);
+  transition: all var(--transition-base, 0.3s ease);
+  position: relative;
+  overflow: hidden;
 }
+
+.divAymen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(209, 231, 221, 0.8) 0%, rgba(165, 214, 178, 0.8) 100%);
+  z-index: 0;
+}
+
+.divAymen > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   IMAGE STYLING
+   ============================================ */
 
 .imagesAymen {
   width: 100%;
   max-width: 500px;
   display: block;
+  border-radius: var(--radius-lg, 12px);
+  box-shadow: var(--shadow-lg, 0 8px 16px rgba(0, 0, 0, 0.15));
+  transition: transform var(--transition-base, 0.3s ease);
+  object-fit: cover;
+  height: auto;
 }
+
+.imagesAymen:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-xl, 0 12px 24px rgba(0, 0, 0, 0.2));
+}
+
+/* ============================================
+   TEXT COLUMN
+   ============================================ */
 
 #colTextAymen {
-  color: black;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  border-top: 3px solid black;
-  height: 350px;
+  color: var(--text-primary-light, #000000);
+  font-family: var(--font-family-heading, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif);
+  border-top: 3px solid var(--text-primary-light, #000000);
+  height: auto;
+  min-height: 350px;
+  padding: var(--spacing-lg, 1.5rem) 0;
+  transition: all var(--transition-base, 0.3s ease);
 }
 
+/* ============================================
+   TITLE
+   ============================================ */
+
 #titletextAymen {
-  font-weight: 800;
-  font-size: 60px;
+  font-weight: var(--font-weight-extra-bold, 800);
+  font-size: clamp(2rem, 5vw, 3.75rem);
   text-align: left;
+  margin-bottom: var(--spacing-lg, 1.5rem);
+  color: var(--text-primary-light, #000000);
+  line-height: 1.2;
+  transition: color var(--transition-base, 0.3s ease);
 }
+
+/* ============================================
+   TEXT CONTENT
+   ============================================ */
 
 #textAymen {
   text-align: left;
-  font-size: 16px;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.8;
+  color: var(--text-secondary-light, #333333);
+  margin: 0;
+  transition: color var(--transition-base, 0.3s ease);
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+
+body.dark-mode .divAymen {
+  background: linear-gradient(135deg, #1a3a2e 0%, #0f5a3a 100%);
+  border-top-color: var(--text-primary-dark, #F3F3F3);
+}
+
+body.dark-mode .divAymen::before {
+  background: linear-gradient(135deg, rgba(26, 58, 46, 0.8) 0%, rgba(15, 90, 58, 0.8) 100%);
+}
+
+body.dark-mode #colTextAymen {
+  color: var(--text-primary-dark, #F3F3F3);
+  border-top-color: var(--text-primary-dark, #F3F3F3);
+}
+
+body.dark-mode #titletextAymen {
+  color: var(--text-primary-dark, #F3F3F3);
+}
+
+body.dark-mode #textAymen {
+  color: var(--text-secondary-dark, #CCCCCC);
+}
+
+body.dark-mode .imagesAymen {
+  box-shadow: var(--shadow-lg, 0 8px 16px rgba(0, 0, 0, 0.5));
+  filter: brightness(0.9);
+}
+
+body.dark-mode .imagesAymen:hover {
+  filter: brightness(1);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 992px) {
+  .divAymen {
+    padding: var(--spacing-xl, 2rem) 0;
+  }
+
+  #titletextAymen {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: var(--spacing-md, 1rem);
+  }
+
+  #textAymen {
+    font-size: clamp(0.95rem, 1.5vw, 1rem);
+  }
+
+  .imagesAymen {
+    max-width: 100%;
+    margin-bottom: var(--spacing-lg, 1.5rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .divAymen {
+    padding: var(--spacing-lg, 1.5rem) 0;
+  }
+
+  #colTextAymen {
+    min-height: auto;
+    padding: var(--spacing-md, 1rem) 0;
+  }
+
+  #titletextAymen {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    text-align: center;
+  }
+
+  #textAymen {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .imagesAymen {
+    margin: 0 auto var(--spacing-lg, 1.5rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .divAymen {
+    padding: var(--spacing-md, 1rem) 0;
+  }
+
+  #titletextAymen {
+    font-size: 1.5rem;
+  }
+
+  #textAymen {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .imagesAymen {
+    max-width: 100%;
+  }
 }

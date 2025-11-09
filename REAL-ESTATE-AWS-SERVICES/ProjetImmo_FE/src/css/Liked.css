@@ -1,99 +1,287 @@
+/* ============================================
+   LIKED HOUSES PAGE STYLES
+   ============================================ */
+
+/* ============================================
+   CONTAINER & LAYOUT
+   ============================================ */
+
 .listeMaisonsContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 20px;
-  }
-  
-  .maisonListeItem {
-    display: flex;
-    justify-content: flex-start;  
-    align-items: center;
-    gap: 25px;
-    padding: 16px;
-    border: 1px solid #333;
-    border-radius: 8px;
-    background-color: #dadada;
-    transition: background-color 0.2s ease;
-    text-decoration: none;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md, 1rem);
+  padding: var(--spacing-lg, 1.5rem) clamp(1rem, 5vw, 3rem);
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-.dark-mode .maisonListeItem {
-    display: flex;
-    justify-content: flex-start;  
-    align-items: center;
-    gap: 25px;
-    padding: 16px;
-    border: 1px solid #333;
-    border-radius: 8px;
-    background-color: #363636;
-    transition: background-color 0.2s ease;
-  }
+/* ============================================
+   HOUSE LIST ITEM
+   ============================================ */
 
-  .dark-mode .maisonInfos {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-    color: #fff8f8;
-  }
-  
-  .dark-mode .ligne1 {
-    font-size: 1rem;
-    font-weight: 600;
-  }
-  
-  .dark-mode .ligne2 {
-    font-size: 1rem;
-    color: #fffcfc;
-  }
+.maisonListeItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-lg, 1.5rem);
+  padding: var(--spacing-md, 1rem) var(--spacing-lg, 1.5rem);
+  border: 1px solid var(--border-light, #E0E0E0);
+  border-radius: var(--radius-lg, 12px);
+  background-color: #dadada;
+  transition: all var(--transition-base, 0.3s ease);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  box-shadow: var(--shadow-sm, 0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.maisonListeItem:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md, 0 4px 8px rgba(0, 0, 0, 0.15));
+  text-decoration: none;
+  color: inherit;
+  border-color: var(--brand-primary, #198754);
+}
+
+/* ============================================
+   HOUSE THUMBNAIL
+   ============================================ */
+
+.maisonMiniature {
+  width: clamp(120px, 20vw, 250px);
+  min-width: 120px;
+  height: clamp(80px, 15vh, 120px);
+  object-fit: cover;
+  border-radius: var(--radius-md, 8px);
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm, 0 2px 4px rgba(0, 0, 0, 0.1));
+  transition: transform var(--transition-base, 0.3s ease);
+}
+
+.maisonListeItem:hover .maisonMiniature {
+  transform: scale(1.05);
+}
+
+/* ============================================
+   HOUSE INFORMATION
+   ============================================ */
+
+.maisonInfos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--spacing-sm, 0.5rem);
+  color: #000000;
+  flex: 1;
+  min-width: 0;
+}
+
+.ligne1 {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-weight: var(--font-weight-bold, 700);
+  color: inherit;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ligne1 strong {
+  color: var(--brand-primary, #198754);
+  font-weight: var(--font-weight-extra-bold, 800);
+}
+
+.ligne2 {
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  color: rgba(0, 0, 0, 0.7);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs, 0.25rem);
+}
+
+.ligne2 i {
+  margin-right: var(--spacing-xs, 0.25rem);
+  font-size: 1.1em;
+  vertical-align: middle;
+}
+
+/* ============================================
+   CLOSE/UNLIKE BUTTON
+   ============================================ */
 
 .bx-x {
   cursor: pointer;
-  color: red;
-  font-size: 40px;
+  color: var(--brand-danger, #d81c12);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
   position: absolute;
-  right: 40px;
+  right: var(--spacing-md, 1rem);
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all var(--transition-base, 0.3s ease);
+  padding: var(--spacing-xs, 0.25rem);
+  border-radius: 50%;
+  background-color: rgba(216, 28, 18, 0.1);
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
-  
-  .maisonMiniature {
-    width: 250px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 10px;
-    flex-shrink: 0;
-    
-  }
-  
-  .maisonInfos {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-    color: #000000;
-  }
-  
-  .ligne1 {
-    font-size: 1rem;
-    font-weight: 600;
-  }
-  
-  .ligne2 {
-    font-size: 1rem;
-    color: #000000;
-  }
-  .maisonMiniature {
-    min-width: 150px;
-    max-width: 150px;
+
+.bx-x:hover {
+  color: #ffffff;
+  background-color: var(--brand-danger, #d81c12);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.bx-x:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* ============================================
+   HEART ICON (if used)
+   ============================================ */
+
+.heartIcon {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  color: var(--brand-accent, #44c767);
+  transition: all var(--transition-base, 0.3s ease);
+  margin-left: var(--spacing-sm, 0.5rem);
+  cursor: pointer;
+}
+
+.heartIcon:hover {
+  color: var(--brand-secondary, #0e4a2e);
+  transform: scale(1.15);
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+
+body.dark-mode .maisonListeItem {
+  background-color: #363636;
+  border-color: var(--border-dark, #333333);
+  color: var(--text-primary-dark, #F3F3F3);
+}
+
+body.dark-mode .maisonListeItem:hover {
+  background-color: #404040;
+  border-color: var(--brand-accent, #44c767);
+}
+
+body.dark-mode .maisonInfos {
+  color: var(--text-primary-dark, #F3F3F3);
+}
+
+body.dark-mode .ligne1 {
+  color: var(--text-primary-dark, #F3F3F3);
+}
+
+body.dark-mode .ligne1 strong {
+  color: var(--brand-accent, #44c767);
+}
+
+body.dark-mode .ligne2 {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+body.dark-mode .maisonMiniature {
+  box-shadow: var(--shadow-md, 0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+body.dark-mode .bx-x {
+  background-color: rgba(216, 28, 18, 0.2);
+}
+
+body.dark-mode .bx-x:hover {
+  background-color: var(--brand-danger, #d81c12);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  .listeMaisonsContainer {
+    padding: var(--spacing-md, 1rem);
+    gap: var(--spacing-sm, 0.5rem);
   }
 
-  .heartIcon {
-    font-size: 1.5rem;        
-    color: #44c767;          
-    transition: color 0.3s ease;
-    margin-left: 10px;       
+  .maisonListeItem {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--spacing-md, 1rem);
+    gap: var(--spacing-md, 1rem);
   }
-  
-  .heartIcon:hover {
-    color: #198754;         
+
+  .maisonMiniature {
+    width: 100%;
+    min-width: 100%;
+    height: 200px;
+    align-self: center;
   }
+
+  .maisonInfos {
+    width: 100%;
+  }
+
+  .ligne1,
+  .ligne2 {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+  }
+
+  .bx-x {
+    position: absolute;
+    right: var(--spacing-sm, 0.5rem);
+    top: var(--spacing-sm, 0.5rem);
+    transform: none;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.5rem;
+  }
+
+  .bx-x:hover {
+    transform: scale(1.1);
+  }
+
+  .bx-x:active {
+    transform: scale(0.95);
+  }
+}
+
+@media (max-width: 480px) {
+  .maisonMiniature {
+    height: 150px;
+  }
+
+  .ligne1 {
+    font-size: 0.9rem;
+  }
+
+  .ligne2 {
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================================
+   EMPTY STATE (if needed)
+   ============================================ */
+
+.listeMaisonsContainer:empty::before {
+  content: "Aucune maison aimée pour le moment";
+  display: block;
+  text-align: center;
+  padding: var(--spacing-xxl, 3rem);
+  color: var(--text-secondary-light, #333333);
+  font-size: 1.1rem;
+}
+
+body.dark-mode .listeMaisonsContainer:empty::before {
+  color: var(--text-secondary-dark, #CCCCCC);
+}

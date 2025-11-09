@@ -1,94 +1,182 @@
-/* Variables de couleur pour le mode clair et sombre */
+/* ============================================
+   SIGN UP PAGE STYLES
+   ============================================ */
+
 :root {
-  /* Mode clair */
-  --bg-signup-light: rgba(255, 255, 255, 0.9);
+  /* Sign Up specific colors */
+  --bg-signup-light: rgba(255, 255, 255, 0.95);
   --bg-light: white;
-  --form-bg-light:white;
+  --form-bg-light: white;
   --text-light: #000000;
   --input-border-light: #ccc;
   --button-bg-light: #0e4a2e;
-  --button-hover-bg-light: #0e4a2e;
-
-  /* Mode sombre */
-  --bg-signup-dark: rgba(0, 0, 0, 0.7);
+  --button-hover-bg-light: #0a3a24;
+  --bg-signup-dark: rgba(0, 0, 0, 0.85);
   --bg-dark: #121212;
   --form-bg-dark: #1c1c1c;
   --text-dark: white;
   --input-border-dark: #444;
   --button-bg-dark: #0e4a2e;
-  --button-hover-bg-dark: #0e4a2e;
+  --button-hover-bg-dark: #0a3a24;
 }
 
-/* Mode clair par défaut */
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
+
 .signup-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url("https://raw.githubusercontent.com/manacGrace/REAL-ESTATE-AWS/refs/heads/main/REAL-ESTATE-AWS-SERVICES/seed/pictures/maisonsGalerie/maison01.jpg");
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  padding: var(--spacing-xl, 2rem) var(--spacing-md, 1rem);
 }
 
+.signup-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+  z-index: 0;
+}
+
+body.dark-mode .signup-container::before {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+/* ============================================
+   FORM WRAPPER
+   ============================================ */
+
 .signup-form-wrapper {
+  position: relative;
+  z-index: 1;
   background-color: var(--bg-signup-light);
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-  max-width: 450px;
+  padding: clamp(2rem, 5vw, 2.5rem);
+  border-radius: var(--radius-xl, 16px);
+  box-shadow: var(--shadow-xl, 0 12px 24px rgba(0, 0, 0, 0.3));
+  max-width: 500px;
   width: 100%;
+  backdrop-filter: blur(10px);
+  transition: all var(--transition-base, 0.3s ease);
+}
+
+.signup-form-wrapper:hover {
+  box-shadow: var(--shadow-xl, 0 16px 32px rgba(0, 0, 0, 0.4));
+  transform: translateY(-2px);
 }
 
 .signup-form-wrapper h2 {
   text-align: center;
-  margin-bottom: 30px;
-  font-size: 24px;
+  margin-bottom: var(--spacing-xl, 2rem);
+  font-size: clamp(1.5rem, 3vw, 2rem);
   color: var(--text-light);
+  font-weight: var(--font-weight-extra-bold, 800);
+  transition: color var(--transition-base, 0.3s ease);
 }
 
+/* ============================================
+   FORM GROUPS
+   ============================================ */
+
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: var(--spacing-lg, 1.5rem);
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 8px;
-  font-size: 16px;
+  margin-bottom: var(--spacing-sm, 0.5rem);
+  font-size: clamp(0.95rem, 1.5vw, 1rem);
   color: var(--text-light);
+  font-weight: var(--font-weight-medium, 600);
+  transition: color var(--transition-base, 0.3s ease);
 }
 
 .form-group input {
   width: 100%;
-  padding: 12px;
-  border-radius: 6px;
-  border: 1px solid var(--input-border-light);
-  font-size: 16px;
+  padding: var(--spacing-md, 1rem);
+  border-radius: var(--radius-md, 8px);
+  border: 2px solid var(--input-border-light);
+  font-size: clamp(0.95rem, 1.5vw, 1rem);
   color: var(--text-light);
   background-color: white;
+  transition: all var(--transition-base, 0.3s ease);
+  box-sizing: border-box;
 }
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--brand-primary, #198754);
+  box-shadow: 0 0 0 3px rgba(25, 135, 84, 0.1);
+}
+
+.form-group input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+  transition: color var(--transition-base, 0.3s ease);
+}
+
+/* ============================================
+   SUBMIT BUTTON
+   ============================================ */
 
 .buttonSingUp[type="submit"] {
   width: 100%;
-  padding: 14px;
+  padding: var(--spacing-md, 1rem);
   background-color: var(--button-bg-light);
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: var(--radius-md, 8px);
   cursor: pointer;
-  font-size: 18px;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: var(--font-weight-bold, 700);
+  transition: all var(--transition-base, 0.3s ease);
+  box-shadow: var(--shadow-sm, 0 2px 4px rgba(0, 0, 0, 0.1));
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: var(--spacing-md, 1rem);
 }
 
 .buttonSingUp[type="submit"]:hover {
   background-color: var(--button-hover-bg-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md, 0 4px 8px rgba(0, 0, 0, 0.15));
 }
 
-/* Mode sombre */
+.buttonSingUp[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm, 0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.buttonSingUp[type="submit"]:focus {
+  outline: 2px solid var(--button-bg-light);
+  outline-offset: 2px;
+}
+
+.buttonSingUp[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+
 body.dark-mode .signup-container {
   background-color: var(--bg-dark);
 }
 
 body.dark-mode .signup-form-wrapper {
-  background-color: var(--form-bg-dark);
+  background-color: var(--bg-signup-dark);
+  box-shadow: var(--shadow-xl, 0 12px 24px rgba(0, 0, 0, 0.6));
 }
 
 body.dark-mode .signup-form-wrapper h2 {
@@ -100,9 +188,18 @@ body.dark-mode .form-group label {
 }
 
 body.dark-mode .form-group input {
-  border: 1px solid var(--input-border-dark);
+  border: 2px solid var(--input-border-dark);
   color: var(--text-dark);
   background-color: #333333;
+}
+
+body.dark-mode .form-group input:focus {
+  border-color: var(--brand-accent, #44c767);
+  box-shadow: 0 0 0 3px rgba(68, 199, 103, 0.2);
+}
+
+body.dark-mode .form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 body.dark-mode .buttonSingUp[type="submit"] {
@@ -111,4 +208,78 @@ body.dark-mode .buttonSingUp[type="submit"] {
 
 body.dark-mode .buttonSingUp[type="submit"]:hover {
   background-color: var(--button-hover-bg-dark);
+}
+
+body.dark-mode .buttonSingUp[type="submit"]:focus {
+  outline-color: var(--button-bg-dark);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  .signup-container {
+    padding: var(--spacing-lg, 1.5rem) var(--spacing-sm, 0.5rem);
+    background-attachment: scroll;
+  }
+
+  .signup-form-wrapper {
+    padding: var(--spacing-lg, 1.5rem);
+    max-width: 100%;
+    border-radius: var(--radius-lg, 12px);
+  }
+
+  .signup-form-wrapper h2 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-lg, 1.5rem);
+  }
+
+  .form-group {
+    margin-bottom: var(--spacing-md, 1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-container {
+    padding: var(--spacing-md, 1rem) var(--spacing-sm, 0.5rem);
+  }
+
+  .signup-form-wrapper {
+    padding: var(--spacing-md, 1rem);
+  }
+
+  .signup-form-wrapper h2 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md, 1rem);
+  }
+
+  .form-group input {
+    padding: var(--spacing-sm, 0.5rem);
+  }
+
+  .buttonSingUp[type="submit"] {
+    padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 1rem);
+    font-size: 0.95rem;
+  }
+}
+
+/* ============================================
+   VALIDATION STYLES (if needed)
+   ============================================ */
+
+.form-group input:invalid:not(:placeholder-shown) {
+  border-color: var(--brand-danger, #d81c12);
+}
+
+.form-group input:valid:not(:placeholder-shown) {
+  border-color: var(--brand-primary, #198754);
+}
+
+.form-group input:invalid:not(:placeholder-shown):focus {
+  box-shadow: 0 0 0 3px rgba(216, 28, 18, 0.1);
+}
+
+.form-group input:valid:not(:placeholder-shown):focus {
+  box-shadow: 0 0 0 3px rgba(25, 135, 84, 0.1);
 }

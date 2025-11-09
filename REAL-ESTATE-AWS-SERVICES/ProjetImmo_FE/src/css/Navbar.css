@@ -1,56 +1,180 @@
-/* Variables de couleur pour le mode clair et sombre */
+/* ============================================
+   NAVBAR STYLES
+   ============================================ */
+
 :root {
-  /* Mode clair */
   --bg-light: white;
   --text-light: #000000;
   --navbar-light-bg: white;
   --navbar-light-text: rgb(0, 0, 0);
   --link-light-hover-bg: #198754;
   --logo-light: #198754;
-  
-  /* Mode sombre */
   --bg-dark: #121212;
   --text-dark: white;
   --navbar-dark-bg: #1c1c1c;
   --navbar-dark-text: white;
   --logo-dark: #198754;
+  --link-dark-hover-bg: rgba(25, 135, 84, 0.3);
 }
 
-/* Mode clair par défaut */
+/* ============================================
+   BODY BASE STYLES
+   ============================================ */
+
 body {
   background-color: var(--bg-light);
   color: var(--text-light);
-  font-family: Arial, sans-serif;
+  font-family: var(--font-family-primary, Arial, sans-serif);
+  transition: background-color var(--transition-base, 0.3s ease), color var(--transition-base, 0.3s ease);
 }
 
-/* Header */
+/* ============================================
+   HEADER/NAVBAR
+   ============================================ */
+
 header {
   align-content: flex-start;
   align-items: stretch;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-  z-index: 1000;
+  box-shadow: var(--shadow-md, 0 2px 8px rgba(0, 0, 0, 0.1));
+  z-index: var(--z-index-fixed, 1030);
   text-decoration: none;
   position: fixed;
   width: 100%;
   background-color: var(--navbar-light-bg);
   top: 0;
-  transition: background-color 0.3s, color 0.3s;
+  transition: all var(--transition-base, 0.3s ease);
+  backdrop-filter: blur(10px);
 }
 
 header a {
   color: var(--navbar-light-text);
   text-decoration: none;
+  transition: color var(--transition-base, 0.3s ease);
 }
 
 header a:hover {
   color: var(--navbar-light-text);
+  text-decoration: none;
 }
 
-/* Logo */
+/* ============================================
+   LOGO
+   ============================================ */
+
 .logo {
-  font-size: 30px;
-  color: var(--logo)
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  color: var(--logo-light);
+  font-weight: var(--font-weight-extra-bold, 800);
+  transition: color var(--transition-base, 0.3s ease);
+  text-decoration: none;
 }
+
+.logo:hover {
+  color: var(--logo-light);
+  text-decoration: none;
+  transform: scale(1.05);
+  transition: transform var(--transition-fast, 0.15s ease);
+}
+
+/* ============================================
+   NAVBAR CONTAINER
+   ============================================ */
+
+.navbar {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--brand-primary, #198754);
+  padding: var(--spacing-sm, 0.5rem) 0;
+}
+
+.navbar-nav {
+  margin-left: var(--spacing-lg, 1.5rem);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm, 0.5rem);
+}
+
+/* ============================================
+   DROPDOWN ITEMS
+   ============================================ */
+
+.dropdown-item {
+  font-weight: var(--font-weight-bold, 700);
+  padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 1rem);
+  transition: all var(--transition-base, 0.3s ease);
+  border-radius: var(--radius-sm, 4px);
+  margin: var(--spacing-xs, 0.25rem) 0;
+}
+
+.dropdown-item:hover {
+  background-color: var(--link-light-hover-bg);
+  color: white;
+}
+
+/* ============================================
+   NAV ITEM LINKS
+   ============================================ */
+
+.nav-item {
+  margin: 0 var(--spacing-xs, 0.25rem);
+}
+
+.nav-item a {
+  color: var(--navbar-light-text);
+  text-decoration: none;
+  padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 1rem);
+  border-radius: var(--radius-md, 8px);
+  transition: all var(--transition-base, 0.3s ease);
+  display: inline-block;
+}
+
+.nav-item a:hover {
+  color: var(--navbar-light-text);
+  text-decoration: none;
+  background-color: var(--link-light-hover-bg);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   NAV LINK STYLING
+   ============================================ */
+
+.nav-link {
+  border-radius: var(--radius-md, 8px);
+  font-size: clamp(0.95rem, 1.5vw, 1rem);
+  font-weight: var(--font-weight-medium, 600);
+  padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 1rem);
+  transition: all var(--transition-base, 0.3s ease);
+}
+
+.nav-link:hover {
+  background-color: var(--link-light-hover-bg);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   USER ICON
+   ============================================ */
+
+.bx-user-circle {
+  margin-left: var(--spacing-md, 1rem);
+  cursor: pointer;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  color: var(--navbar-light-text);
+  transition: all var(--transition-base, 0.3s ease);
+  padding: var(--spacing-xs, 0.25rem);
+  border-radius: 50%;
+}
+
+.bx-user-circle:hover {
+  color: var(--brand-primary, #198754);
+  background-color: rgba(25, 135, 84, 0.1);
+  transform: scale(1.1);
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
 
 body.dark-mode {
   background-color: var(--bg-dark);
@@ -58,65 +182,12 @@ body.dark-mode {
 }
 
 body.dark-mode .logo {
-  color: var(--logo-dark); 
-}
-
-
-/* Navbar */
-.navbar {
-  font-size: 30px;
-  color: #198754;
-}
-
-.navbar-nav {
-  margin-left: 30px;
-}
-
-/* Dropdown items */
-.dropdown-item {
-  font-weight: 700;
-}
-
-/* Nav item links */
-.nav-item a {
-  color: var(--navbar-light-text);
-  text-decoration: none;
-}
-
-.nav-item a:hover {
-  color: var(--navbar-light-text);
-  text-decoration: none;
-}
-
-.bx-user-circle{
-  margin-left: 10px;
-  cursor: pointer;
-  font-size: 40px;
-}
-
-.bx-user-circle:hover{
-  color: var(--navbar-light-text);
-}
-
-/* Nav link styling */
-.nav-link {
-  border-radius: 15px;
-  font-size: 20px;
-}
-
-/* Nav link hover effect */
-.nav-link:hover {
-  background-color: var(--link-light-hover-bg);
-}
-
-/* Mode sombre */
-body.dark-mode {
-  background-color: var(--bg-dark);
-  color: var(--text-dark);
+  color: var(--logo-dark);
 }
 
 body.dark-mode header {
   background-color: var(--navbar-dark-bg);
+  box-shadow: var(--shadow-md, 0 2px 8px rgba(0, 0, 0, 0.3));
 }
 
 body.dark-mode header a {
@@ -133,8 +204,120 @@ body.dark-mode .navbar-nav .nav-link {
 
 body.dark-mode .nav-link:hover {
   background-color: var(--link-dark-hover-bg);
+  color: var(--navbar-dark-text);
 }
 
-.fixed-bottom{
-  position:relative;
+body.dark-mode .nav-item a:hover {
+  background-color: var(--link-dark-hover-bg);
+  color: var(--navbar-dark-text);
+}
+
+body.dark-mode .bx-user-circle {
+  color: var(--navbar-dark-text);
+}
+
+body.dark-mode .bx-user-circle:hover {
+  color: var(--brand-accent, #44c767);
+  background-color: rgba(68, 199, 103, 0.2);
+}
+
+body.dark-mode .dropdown-item:hover {
+  background-color: var(--link-dark-hover-bg);
+  color: var(--navbar-dark-text);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.fixed-bottom {
+  position: relative;
+  margin-top: auto;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 992px) {
+  .navbar-nav {
+    margin-left: var(--spacing-md, 1rem);
+    gap: var(--spacing-xs, 0.25rem);
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+    padding: var(--spacing-xs, 0.25rem) var(--spacing-sm, 0.5rem);
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: var(--spacing-xs, 0.25rem) 0;
+  }
+
+  .navbar {
+    font-size: 0.9rem;
+  }
+
+  .navbar-nav {
+    margin-left: var(--spacing-sm, 0.5rem);
+    flex-wrap: wrap;
+  }
+
+  .nav-item {
+    margin: var(--spacing-xs, 0.25rem);
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+    padding: var(--spacing-xs, 0.25rem) var(--spacing-sm, 0.5rem);
+  }
+
+  .bx-user-circle {
+    font-size: 2rem;
+    margin-left: var(--spacing-sm, 0.5rem);
+  }
+
+  .logo {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: var(--spacing-sm, 0.5rem);
+  }
+
+  .nav-item {
+    width: 100%;
+    margin: var(--spacing-xs, 0.25rem) 0;
+  }
+
+  .nav-link {
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* ============================================
+   MOBILE MENU (if using hamburger)
+   ============================================ */
+
+@media (max-width: 768px) {
+  .navbar-collapse {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-base, 0.3s ease);
+  }
+
+  .navbar-collapse.show {
+    max-height: 500px;
+  }
 }

@@ -87,11 +87,12 @@ ssh -i "PROJET-IMMO-keypair.pem" ubuntu@yourEC2ip
 ### 4. Deploy Application
 
 ```bash
-# Navigate to services directory
+# Clone and navigate to services directory
+git clone https://github.com/manacGrace/REAL-ESTATE-AWS.git
 cd REAL-ESTATE-AWS/REAL-ESTATE-AWS-SERVICES
 
 # Configure environment variables
-cp .env.template .env
+cp .env.example .env
 nano .env
 ```
 
